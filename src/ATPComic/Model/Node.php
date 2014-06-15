@@ -12,6 +12,21 @@ class Node extends \ATP\ActiveRecord
 		$this->setTableNamespace('comic');
 	}
 	
+	public function __construct($arc = null, $page = null)
+	{
+		parent::__construct();
+		
+		if(!is_null($arc) && !is_null($page))
+		{
+			$nodes = $this->loadMultiple(array(
+				'where' => "arc_id = ? AND page_id = ?",
+				'data' => array($arc->id, $page->id)
+			));
+			
+			$this->setFrom($nodes[0]);
+		}
+	}
+	
 	public function displayName()
 	{
 		return $this->arc->displayName() . " - " . $this->page->displayName();
