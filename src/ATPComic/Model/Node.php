@@ -31,5 +31,14 @@ class Node extends \ATP\ActiveRecord
 	{
 		return $this->arc->displayName() . " - " . $this->page->displayName();
 	}
+	
+	public function fullUrl()
+	{
+		$arc = $this->arc->url;
+		$number = $this->page->pageNumber;
+		$page = $this->page->url;
+		
+		return "comic/{$arc}/{$number}/{$page}";
+	}
 }
 Node::init();

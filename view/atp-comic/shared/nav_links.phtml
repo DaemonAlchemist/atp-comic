@@ -1,0 +1,22 @@
+<ul>
+	<li>
+		<?php if($node->arc->firstNode()->id != $node->id) { ?>
+			<a href="<?=$this->basePath($node->arc->firstNode()->fullUrl())?>">&lt;&lt;</a>
+		<?php } ?>
+	</li>
+	<li>
+		<?php if($node->prevNode->id) { ?>
+			<a href="<?=$this->basePath($node->prevNode->fullUrl())?>">&lt;</a>
+		<?php } ?>
+	</li>
+	<li>
+		<?php if($node->nextNode->id) { ?>
+			<a href="<?=$this->basePath($node->nextNode->fullUrl())?>">&gt;</a>
+		<?php } ?>
+	</li>
+	<li>
+		<?php if($node->arc->lastNode()->id != $node->id) { ?>
+			<a href="<?=$this->basePath($node->arc->lastNode()->fullUrl())?>">&gt;&gt;</a>
+		<?php } ?>
+	</li>
+</ul>

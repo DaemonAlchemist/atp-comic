@@ -1,3 +1,12 @@
 <h1><?=$page->title?> (page <?=$page->pageNumber?>)</h1>
 <h2>Story arc: <?=$arc->name?></h2>
 <img src="<?=$page->filePath('image_file')?>" />
+
+<h3>Current Arc</h3>
+<?=$this->partial('atp-comic/shared/nav_links.phtml', array('node' => $node))?>
+
+<h3>All Arcs</h3>
+<?php foreach($page->getComicNodesByPage() as $curNode) { ?>
+	<h4><?=$curNode->arc->name?></h4>
+	<?=$this->partial('atp-comic/shared/nav_links.phtml', array('node' => $curNode))?>
+<?php } ?>

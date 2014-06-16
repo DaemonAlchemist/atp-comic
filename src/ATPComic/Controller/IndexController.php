@@ -12,12 +12,15 @@ class IndexController extends \ATPCore\Controller\AbstractController
 	{
 		$this->init();
 		
+		//Get the current arc
 		$arc = new \ATPComic\Model\Arc();
 		$arc->loadByUrl($this->params('arc'));
 		
+		//Get the current page
 		$page = new \ATPComic\Model\Page();
 		$page->loadByUrl($this->params('pageUrl'));
 		
+		//Get the arc/page node
 		$node = new \ATPComic\Model\Node($arc, $page);
 		
 		return new \Zend\View\Model\ViewModel(array(
