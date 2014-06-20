@@ -1,4 +1,4 @@
-<ul>
+<ul class="comic-nav-links">
 	<li>
 		<?php if($node->arc->firstNode()->id != $node->id) { ?>
 			<a href="<?=$this->basePath($node->arc->firstNode()->fullUrl())?>">&lt;&lt;</a>
@@ -8,6 +8,9 @@
 		<?php if($node->prevNode->id) { ?>
 			<a href="<?=$this->basePath($node->prevNode->fullUrl())?>">&lt;</a>
 		<?php } ?>
+	</li>
+	<li class="arc-name">
+		<?=$node->arc->name?>
 	</li>
 	<li>
 		<?php if($node->nextNode->id) { ?>
