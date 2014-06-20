@@ -40,5 +40,25 @@ class Node extends \ATP\ActiveRecord
 		
 		return "comic/{$arc}/{$number}/{$page}";
 	}
+
+	public function isLastNode()
+	{
+		return !($this->nextNode->id);
+	}
+	
+	public function isFirstNode()
+	{
+		return !($this->prevNode->id);
+	}
+	
+	public function hasNextArc()
+	{
+		return $this->arc->nextArc->id;
+	}
+	
+	public function hasPrevArc()
+	{
+		return $this->arc->prevArc->id;
+	}
 }
 Node::init();

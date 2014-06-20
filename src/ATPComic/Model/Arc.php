@@ -14,6 +14,11 @@ class Arc extends \ATP\ActiveRecord
 		return $this->name;
 	}
 	
+	public function fullName()
+	{
+		return $this->parentArc->id ? $this->parentArc->fullName() . " - " . $this->displayName() : $this->displayName();
+	}
+	
 	public function firstNode()
 	{
 		$node = new \ATPComic\Model\Node();
@@ -34,6 +39,16 @@ class Arc extends \ATP\ActiveRecord
 		));
 		
 		return count($nodes) > 0 ? $nodes[0] : null;
+	}
+	
+	public function hasNextArc()
+	{
+		return $this->nextArc->id;
+	}
+	
+	public function hasPrevArc()
+	{
+		return $this->prevArc->id;
 	}
 }
 Arc::init();

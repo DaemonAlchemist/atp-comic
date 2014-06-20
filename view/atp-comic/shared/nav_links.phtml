@@ -1,25 +1,33 @@
 <ul class="comic-nav-links">
-	<li>
-		<?php if($node->arc->firstNode()->id != $node->id) { ?>
+	<?php if(!$node->isFirstNode()) { ?>
+		<li>
 			<a href="<?=$this->basePath($node->arc->firstNode()->fullUrl())?>">&lt;&lt;</a>
-		<?php } ?>
-	</li>
-	<li>
-		<?php if($node->prevNode->id) { ?>
+		</li>
+		<li>
 			<a href="<?=$this->basePath($node->prevNode->fullUrl())?>">&lt;</a>
-		<?php } ?>
-	</li>
+		</li>
+	<?php } else { ?>
+		<li class="arc-link">
+			<?php if($node->hasPrevArc()) { ?>
+				<a href="<?=$node->arc->prevArc->lastNode()->fullUrl()?>">&lt; <?=$node->arc->prevArc->displayName()?></a>
+			<?php } ?>
+		</li>
+	<?php } ?>
 	<li class="arc-name">
-		<?=$node->arc->name?>
+		<?=$node->arc->fullName()?>
 	</li>
-	<li>
-		<?php if($node->nextNode->id) { ?>
+	<?php if(!$node->isLastNode()) { ?>
+		<li>
 			<a href="<?=$this->basePath($node->nextNode->fullUrl())?>">&gt;</a>
-		<?php } ?>
-	</li>
-	<li>
-		<?php if($node->arc->lastNode()->id != $node->id) { ?>
+		</li>
+		<li>
 			<a href="<?=$this->basePath($node->arc->lastNode()->fullUrl())?>">&gt;&gt;</a>
-		<?php } ?>
-	</li>
+		</li>
+	<?php } else { ?>
+		<li class="arc-link">
+			<?php if($node->hasNextArc()) { ?>
+				<a href="<?=$node->arc->nextArc->firstNode()->fullUrl()?>"><?=$node->arc->nextArc->displayName()?> &gt;</a>
+			<?php } ?>
+		</li>
+	<?php } ?>
 </ul>
