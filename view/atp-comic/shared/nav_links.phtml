@@ -9,7 +9,7 @@
 	<?php } else { ?>
 		<li class="arc-link">
 			<?php if($node->hasPrevArc()) { ?>
-				<a href="<?=$node->arc->prevArc->lastNode()->fullUrl()?>">&lt; <?=$node->arc->prevArc->displayName()?></a>
+				<a href="<?=$this->basePath($node->arc->prevArc->lastNode()->fullUrl())?>">&lt; <?=$node->arc->prevArc->displayName()?></a>
 			<?php } ?>
 		</li>
 	<?php } ?>
@@ -26,7 +26,7 @@
 	<?php } else { ?>
 		<li class="arc-link">
 			<?php if($node->hasNextArc()) { ?>
-				<a href="<?=$node->arc->nextArc->firstNode()->fullUrl()?>"><?=$node->arc->nextArc->displayName()?> &gt;</a>
+				<a href="<?=$this->basePath($node->arc->nextArc->firstNode()->fullUrl())?>"><?=$node->arc->nextArc->displayName()?> &gt;</a>
 			<?php } ?>
 		</li>
 	<?php } ?>
