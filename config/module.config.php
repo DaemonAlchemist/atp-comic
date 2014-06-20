@@ -3,21 +3,21 @@
 return array(
 	'admin' => array(
 		'models' =>array(
-			'comic_page' => array(
+			'atpcomic_page' => array(
 				'displayName' => 'Page',
 				'class' => 'ATPComic\Model\Page',
 				'category' => 'Comic',
 				'displayColumns' => array('PageNumber', 'Title', 'Url'),
 				'defaultOrder' => 'page_number DESC',
 			),
-			'comic_arc' => array(
+			'atpcomic_arc' => array(
 				'displayName' => 'Arc',
 				'class' => 'ATPComic\Model\Arc',
 				'category' => 'Comic',
 				'displayColumns' => array('Name', 'Url'),
 				'defaultOrder' => 'name ASC',
 			),
-			'comic_node' => array(
+			'atpcomic_node' => array(
 				'displayName' => 'Node',
 				'class' => 'ATPComic\Model\Node',
 				'category' => 'Comic',

@@ -7,11 +7,6 @@ require_once("Arc.php");
 
 class Node extends \ATP\ActiveRecord
 {
-	protected function setup()
-	{
-		$this->setTableNamespace('comic');
-	}
-	
 	public function __construct($arc = null, $page = null)
 	{
 		parent::__construct();

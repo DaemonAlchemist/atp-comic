@@ -8,7 +8,7 @@
 <div class="current-arc-links arc-links"><?=$this->partial('atp-comic/shared/nav_links.phtml', array('node' => $node))?></div>
 
 <div class="all-arc-links arc-links">
-	<?php foreach($page->getComicNodesByPage() as $curNode) { ?>
+	<?php foreach($page->getAtpcomicNodesByPage() as $curNode) { ?>
 		<?=$this->partial('atp-comic/shared/nav_links.phtml', array('node' => $curNode))?>
 	<?php } ?>
 </div>
