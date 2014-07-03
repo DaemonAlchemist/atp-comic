@@ -34,5 +34,17 @@ class IndexController extends \ATPCore\Controller\AbstractController
 	public function archivesAction()
 	{
 		$this->init();
+		
+		$arcUrl = $this->params('arc');
+		
+		$arc = new \ATPComic\Model\Arc();
+		$arcs = $arc->loadMultiple(array(
+			'where' => !empty($arcUrl) ? "url = ?" : null,
+			'data' =>!empty($arcUrl) ? array($arcUrl) : array()
+		));
+		
+		return new \Zend\View\Model\ViewModel(array(
+			'arcs' => $arcs
+		));
 	}
 }

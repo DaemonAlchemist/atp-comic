@@ -41,7 +41,7 @@ return array(
             'comic_archives' => array(
                 'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/comic/archives[/:arc[/children]]',
+                    'route'    => '/comic/archives[/[:arc[/[children]]]]',
                     'defaults' => array(
                         'controller'    => 'ATPComic\Controller\IndexController',
 						'action'		=> 'archives',

@@ -1,1 +1,9 @@
-Archives go here.
+<?php foreach($arcs as $arc) { ?>
+	<h2><?=$arc->displayName()?></h2>
+	
+	<ul>
+		<?php foreach($arc->getAtpcomicNodesByArc() as $node) { ?>
+			<li><a href="<?=$this->basePath($node->fullUrl())?>"><?=$node->page->displayName()?></a></li>
+		<?php } ?>
+	</ul>
+<?php } ?>

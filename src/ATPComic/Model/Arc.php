@@ -2,6 +2,8 @@
 
 namespace ATPComic\Model;
 
+require_once("Node.php");
+
 class Arc extends \ATP\ActiveRecord
 {
 	public function displayName()
