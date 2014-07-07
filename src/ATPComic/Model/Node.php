@@ -27,13 +27,13 @@ class Node extends \ATP\ActiveRecord
 		return $this->arc->displayName() . " - " . $this->page->displayName();
 	}
 	
-	public function fullUrl()
+	public function getRoutingData()
 	{
-		$arc = $this->arc->url;
-		$number = $this->page->pageNumber;
-		$page = $this->page->url;
-		
-		return "comic/{$arc}/{$number}/{$page}";
+		return array(
+			'arc'		=> $this->arc->url,
+			'pageNum'	=> $this->page->pageNumber,
+			'pageUrl'	=> $this->page->url,
+		);		
 	}
 
 	public function isLastNode()
