@@ -1,6 +1,11 @@
 <?php
 
 return array(
+	'modules' => array(
+		'ATPComic' => array(
+			'version' => '1.0',
+		),
+	),
 	'admin' => array(
 		'models' =>array(
 			'atpcomic_page' => array(
