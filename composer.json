@@ -8,6 +8,11 @@
             "email": "andy@wittrock.us"
         }
     ],
+    "autoload": {
+        "psr-0": {
+            "ATPComic": "src"
+        }
+    },
     "require": {
 		"daemonalchemist/atp-core": "dev-master"
     }
