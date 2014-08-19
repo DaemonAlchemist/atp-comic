@@ -9,6 +9,6 @@
         }
     ],
     "require": {
-
+		"daemonalchemist/atp-core": "dev-master"
     }
 }
