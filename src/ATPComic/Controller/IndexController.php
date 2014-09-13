@@ -23,11 +23,16 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		//Get the arc/page node
 		$node = new \ATPComic\Model\Node($arc, $page);
 		
-		return new \Zend\View\Model\ViewModel(array(
+		$view = new \Zend\View\Model\ViewModel(array(
 			'arc' => $arc,
 			'page' => $page,
 			'node' => $node,
 		));
+		
+		//Add patreon link
+		$this->layout()->addChild(new \ATPSocial\View\Widget\PatreonLink($this->siteParam('Patreon Name')), 'patreonLink');
+		
+		return $view;
 	}
 	
 	
