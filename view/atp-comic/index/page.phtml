@@ -4,7 +4,6 @@
 
 <img class="comic-img" src="<?=$page->filePath('image_file')?>" />
 <h1 class="page-title"><?=$page->title?> (page <?=$page->pageNumber?>)</h1>
-<h2 class="page-arc">Story arc: <?=$arc->name?></h2>
 
 <div class="current-arc-links arc-links"><?=$this->partial('atp-comic/shared/nav_links.phtml', array('node' => $node))?></div>
 
