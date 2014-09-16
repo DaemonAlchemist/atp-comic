@@ -29,10 +29,6 @@ class IndexController extends \ATPCore\Controller\AbstractController
 			'node' => $node,
 		));
 		
-		//Add promotion links
-		$this->layout()->addChild(new \ATPSocial\View\Widget\PatreonLink($this->siteParam('Patreon Name')), 'patreonLink');
-		$this->layout()->addChild(new \ATPSocial\View\Widget\TWCVoteButton($this->siteParam('Top Webcomics Site Id')), 'twcVoteButton');
-		
 		return $view;
 	}
 	
