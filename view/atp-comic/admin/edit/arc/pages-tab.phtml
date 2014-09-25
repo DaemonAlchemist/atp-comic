@@ -1,0 +1,13 @@
+<h3 class="section-header">Pages</h3>
+
+<div class="section">
+	<ul>
+		<?php foreach($object->getAtpcomicNodesByArc() as $node) { ?>
+			<li>
+				<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
+					<?=$node->page->displayName()?>
+				</a>
+			</li>
+		<?php } ?>
+	</ul>
+</div>

@@ -47,5 +47,19 @@ class Arc extends \ATP\ActiveRecord
 	{
 		return $this->prevArc->id;
 	}
+	
+	public static function getRootArcs()
+	{
+		$options = array(
+			'where' => 'parent_arc_id is null or parent_arc_id=0'
+		);
+		$arc = new static();
+		return $arc->loadMultiple($options);
+	}
+	
+	public function getSubArcs()
+	{
+		return $this->getAtpcomicArcsByParentArc();
+	}
 }
 Arc::init();

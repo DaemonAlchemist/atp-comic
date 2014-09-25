@@ -1,0 +1,14 @@
+<li>
+	<?php $checked = $page->belongsToArc($arc);?>
+	<span class="arc-selector <?=$checked ? "arc-selected" : ""?>" data-arcId="<?=$arc->id?>">
+		<input type="checkbox" <?=$checked ? "checked" : ""?> name="modelData[arc_assignments][]" value="<?=$arc->id?>"/>
+		<span class="arc-name">
+			<?=$arc->name?>
+		</span>
+	</span>
+	<ul>
+		<?php foreach($arc->getSubArcs() as $subArc) { ?>
+			<?=$this->partial('atp-comic/shared/arc-hierarchy.phtml', array('arc' => $subArc, 'page' => $page))?>
+		<?php } ?>
+	</ul>
+</li>

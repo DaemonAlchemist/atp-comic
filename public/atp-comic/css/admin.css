@@ -1,0 +1,31 @@
+#object-story_arcs-tab {
+ padding: 0;
+}
+#object-story_arcs-tab .tab-section {
+ width: 50%;
+ float: left;
+ padding: 8px;
+}
+#object-story_arcs-tab ul.arc-hierarchy span.arc-selector {
+ display: block;
+ padding: 8px;
+}
+#object-story_arcs-tab ul.arc-hierarchy span.arc-selector:hover {
+ background: #cccccc;
+}
+#object-story_arcs-tab ul.arc-hierarchy span.arc-selector.arc-selected:before {
+ position: absolute;
+ content: '\2714';
+}
+#object-story_arcs-tab ul.arc-hierarchy span.arc-selector span.arc-name {
+ margin-left: 20px;
+}
+#object-story_arcs-tab ul.arc-hierarchy span.arc-selector input {
+ display: none;
+}
+#object-story_arcs-tab ul.arc-hierarchy ul {
+ padding: 8px 8px 8px 24px;
+}
+#object-story_arcs-tab #current-arcs p {
+ padding: 8px;
+}

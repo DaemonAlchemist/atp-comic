@@ -1,0 +1,25 @@
+<?php $this->appendCss("/atp-comic/css/admin.less")?>
+<?php $this->appendJs("/atp-comic/js/comic.js")?>
+
+<div class="tab-section">
+	<h3 class="section-header">Available Story Arcs</h3>
+
+	<div class="section">
+		<ul class="arc-hierarchy">
+			<?php foreach(\ATPComic\Model\Arc::getRootArcs() as $arc) { ?>
+				<?=$this->partial('atp-comic/shared/arc-hierarchy.phtml', array('arc' => $arc, 'page' => $object))?>
+			<?php } ?>
+		</ul>
+	</div>
+</div>
+
+<div class="tab-section">
+	<h3 class="section-header">This page belongs to the following story arcs:</h3>
+
+	<div class="section" id="current-arcs">
+		<?php foreach($object->getNodes() as $node) {?>
+			<p id="arc-<?=$arc->id?>"><?=$node->arc->name?></p>
+		<?php } ?>
+	</div>
+</div>
+

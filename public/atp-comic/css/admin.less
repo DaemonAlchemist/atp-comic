@@ -1,0 +1,25 @@
+@bg: #cccccc;
+@hl: #eeeeee;
+@ll: #aaaaaa;
+
+#object-story_arcs-tab {
+	padding: 0;
+	.tab-section {width: 50%; float: left; padding: 8px;}
+	ul.arc-hierarchy {
+		span.arc-selector {
+			display: block; padding: 8px;
+			&:hover {background: @bg;}
+			&.arc-selected:before {position: absolute; content: '\2714';}
+			span.arc-name {
+				margin-left: 20px;
+			}
+			input {display: none;}
+		}
+		ul {
+			padding: 8px 8px 8px 24px;
+		}
+	}
+	
+	#current-arcs p {padding: 8px;}
+}
+

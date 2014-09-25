@@ -31,7 +31,7 @@ class Node extends \ATP\ActiveRecord
 	{
 		return array(
 			'arc'		=> $this->arc->url,
-			'pageNum'	=> $this->page->pageNumber,
+			'pageNum'	=> $this->pageNumber,
 			'pageUrl'	=> $this->page->url,
 		);		
 	}
