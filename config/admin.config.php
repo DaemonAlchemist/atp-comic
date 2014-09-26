@@ -44,5 +44,16 @@ return array(
 				),
 			),
 		),
+		'parameters' => array(
+			'comic-default-arc' => array(
+				'identifier' => 'Default Story Arc',
+				'group' => 'Comic',
+				'type' => 'ModelSelect',
+				'default' => '',
+				'options' => array(
+					'className' => 'ATPComic\Model\Arc',
+				),
+			),
+		),
 	),
 );
