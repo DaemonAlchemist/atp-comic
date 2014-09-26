@@ -1,6 +1,6 @@
 <?php $this->appendJs("/atp-comic/js/comic.js")?>
 
-<img class="comic-img" src="<?=$page->filePath('image_file')?>" />
+<img class="comic-img" src="<?=$this->basePath($page->filePath('image_file'))?>" />
 
 <div class="current-arc-links arc-links"><?=$this->partial('atp-comic/shared/nav_links.phtml', array('node' => $node))?></div>
 
