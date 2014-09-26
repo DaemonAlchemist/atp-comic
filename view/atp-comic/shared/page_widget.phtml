@@ -1,0 +1,25 @@
+<?php $this->appendJs("/atp-comic/js/comic.js")?>
+
+<img class="comic-img" src="<?=$page->filePath('image_file')?>" />
+
+<div class="current-arc-links arc-links"><?=$this->partial('atp-comic/shared/nav_links.phtml', array('node' => $node))?></div>
+
+<div class="all-arc-links arc-links">
+	<?php foreach($page->getAtpcomicNodesByPage() as $curNode) { ?>
+		<?=$this->partial('atp-comic/shared/nav_links.phtml', array('node' => $curNode))?>
+	<?php } ?>
+</div>
+
+<hr />
+
+<div class="ad-container">
+	<div class="pw-banner"><img src="https://www.projectwonderful.com/img/uploads/pics/103229-1409300685.jpg" /></div>
+</div>
+
+<hr />
+
+<h1 class="page-title"><?=$page->title?> (page <?=$node->pageNumber?>)</h1>
+<p class="comic-text page-description"><?=$page->descriptionHtml?></p>
+
+<h2 class="transcript-title">Page Transcript</h2>
+<p class="comic-text page-transcript"><?=$page->transcriptHtml?></p>
