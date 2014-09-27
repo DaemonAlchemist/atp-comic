@@ -16,6 +16,7 @@ return array(
 				),
 				'customTabs' => array(
 					'Story Arcs' => 'atp-comic/admin/edit/page/arcs-tab.phtml',
+					'Move Page' => 'atp-comic/admin/edit/page/move-tab.phtml',
 				),
 			),
 			'atpcomic_arc' => array(
@@ -36,11 +37,10 @@ return array(
 				'displayName' => 'Node',
 				'class' => 'ATPComic\Model\Node',
 				'category' => 'Comic',
-				'displayColumns' => array('NextNodeId', 'PrevNodeId'),
+				'displayColumns' => array(),
 				'defaultOrder' => 'page_id ASC',
 				'tabs' => array(
 					'Details' => array('arc_id', 'page_id', 'page_number'),
-					'Navigation' => array('prev_node_id', 'next_node_id'),
 				),
 			),
 		),

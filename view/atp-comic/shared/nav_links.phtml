@@ -1,10 +1,10 @@
 <ul class="comic-nav-links">
-	<?php if(!$node->isFirstNode()) { ?>
+	<?php if(!$node->isFirst()) { ?>
 		<li>
 			<a href="<?=$this->url('comic/page', $node->arc->firstNode()->getRoutingData())?>">&lt;&lt;</a>
 		</li>
 		<li>
-			<a href="<?=$this->url('comic/page', $node->prevNode->getRoutingData())?>">&lt;</a>
+			<a href="<?=$this->url('comic/page', $node->prevNode()->getRoutingData())?>">&lt;</a>
 		</li>
 	<?php } else { ?>
 		<li class="arc-link">
@@ -18,9 +18,9 @@
 			<?=$node->arc->fullName()?>
 		</a>
 	</li>
-	<?php if(!$node->isLastNode()) { ?>
+	<?php if(!$node->isLast()) { ?>
 		<li>
-			<a href="<?=$this->url('comic/page', $node->nextNode->getRoutingData())?>">&gt;</a>
+			<a href="<?=$this->url('comic/page', $node->nextNode()->getRoutingData())?>">&gt;</a>
 		</li>
 		<li>
 			<a href="<?=$this->url('comic/page', $node->arc->lastNode()->getRoutingData())?>">&gt;&gt;</a>

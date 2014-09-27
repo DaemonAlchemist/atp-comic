@@ -20,7 +20,9 @@ class Arc extends \ATP\ActiveRecord
 	{
 		$node = new \ATPComic\Model\Node();
 		$nodes = $node->loadMultiple(array(
-			'where' => "arc_id = ? AND prev_node_id IS NULL",
+			'where' => "arc_id = ?",
+			'orderBy' => 'page_number ASC',
+			'limit' => 1,
 			'data' => array($this->id)
 		));
 		
@@ -31,7 +33,9 @@ class Arc extends \ATP\ActiveRecord
 	{
 		$node = new \ATPComic\Model\Node();
 		$nodes = $node->loadMultiple(array(
-			'where' => "arc_id = ? AND next_node_id IS NULL",
+			'where' => "arc_id = ?",
+			'orderBy' => 'page_number DESC',
+			'limit' => 1,
 			'data' => array($this->id)
 		));
 		
@@ -55,6 +59,17 @@ class Arc extends \ATP\ActiveRecord
 		);
 		$arc = new static();
 		return $arc->loadMultiple($options);
+	}
+	
+	public function getPageNodes()
+	{
+		$options = array(
+			'where' => 'arc_id=' . $this->id,
+			'orderBy' => 'page_number ASC',
+		);
+		
+		$node = new \ATPComic\Model\Node();
+		return $node->loadMultiple($options);
 	}
 	
 	public function getSubArcs()

@@ -33,17 +33,6 @@ class Page extends \ATP\ActiveRecord
 		//Delete unneeded nodes
 		foreach($nodesToDelete as $node)
 		{
-			//Update next and prev links
-			if($node->prevNodeId) {
-				$prevNode = $node->prevNode;
-				$prevNode->nextNodeId = $node->nextNodeId;
-				$prevNode->save();
-			}
-			if($node->nextNodeId) {
-				$nextNode = $node->nextNode;
-				$nextNode->prevNodeId = $node->prevNodeId;
-				$nextNode->save();
-			}
 			//Delete the node
 			$node->delete();
 			
@@ -64,16 +53,9 @@ class Page extends \ATP\ActiveRecord
 			$newNode = new \ATPComic\Model\Node();
 			$newNode->arc = $arc;
 			$newNode->page = $this;
-			$newNode->prevNode = $lastNode;
 			$newNode->pageNumber = $lastNode ? $lastNode->pageNumber + 1 : 1;
 		
 			$newNode->save();
-			
-			if($lastNode)
-			{
-				$lastNode->nextNode = $newNode;
-				$lastNode->save();
-			}			
 		}
 	}
 	

@@ -6,7 +6,7 @@
 	</h2>
 	
 	<ul>
-		<?php foreach($arc->getAtpcomicNodesByArc() as $node) { ?>
+		<?php foreach($arc->getPageNodes() as $node) { ?>
 			<li>
 				<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
 					<?=$node->page->displayName()?>

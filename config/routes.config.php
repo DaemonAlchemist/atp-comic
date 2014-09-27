@@ -35,13 +35,23 @@ return array(
 							),
 						),
 					),
+					'api' => array(
+						'type' => 'Segment',
+						'options' => array(
+							'route' => '/api/[:action]',
+							'defaults' => array(
+								'controller' => 'atp-comic-api',
+							),
+						),
+					),
 				),
 			),
         ),
     ),
     'controllers' => array(
         'invokables' => array(
-            'atp-comic-index' => 'ATPComic\Controller\IndexController'
+            'atp-comic-index' => 'ATPComic\Controller\IndexController',
+			'atp-comic-api' => 'ATPComic\Controller\APIController',
         ),
     ),
 );

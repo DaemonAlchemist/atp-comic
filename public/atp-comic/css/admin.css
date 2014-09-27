@@ -6,6 +6,11 @@
  float: left;
  padding: 8px;
 }
+#object-story_arcs-tab .tab-full-section {
+ clear: both;
+ width: 100%;
+ padding: 8px;
+}
 #object-story_arcs-tab ul.arc-hierarchy span.arc-selector {
  display: block;
  padding: 8px;
@@ -28,4 +33,41 @@
 }
 #object-story_arcs-tab #current-arcs p {
  padding: 8px;
+}
+#object-move_page-tab div.move-page table {
+ width: 75%;
+ margin: auto;
+}
+#object-move_page-tab div.move-page table td,
+#object-move_page-tab div.move-page table th {
+ text-align: center;
+ width: 33%;
+ padding: 8px;
+}
+#object-move_page-tab div.move-page table thead tr th {
+ border-bottom: solid 4px #aaaaaa;
+ font-weight: bold;
+}
+#object-move_page-tab div.move-page table tbody td div > span {
+ display: block;
+ background: #cccccc;
+ padding: 8px;
+ text-align: center;
+ border: solid 2px #aaaaaa;
+}
+#object-move_page-tab div.move-page table tbody td div.node-current span.move-prev {
+ font-weight: bold;
+ float: left;
+ background: #eeeeee;
+ display: block;
+ padding: 8px;
+ margin: -8px 0 0 -8px;
+}
+#object-move_page-tab div.move-page table tbody td div.node-current span.move-next {
+ font-weight: bold;
+ float: right;
+ background: #eeeeee;
+ display: block;
+ padding: 8px;
+ margin: -8px -8px 0 0;
 }

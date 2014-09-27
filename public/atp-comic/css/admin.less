@@ -5,6 +5,7 @@
 #object-story_arcs-tab {
 	padding: 0;
 	.tab-section {width: 50%; float: left; padding: 8px;}
+	.tab-full-section {clear: both; width: 100%; padding: 8px;}
 	ul.arc-hierarchy {
 		span.arc-selector {
 			display: block; padding: 8px;
@@ -23,3 +24,28 @@
 	#current-arcs p {padding: 8px;}
 }
 
+#object-move_page-tab {
+	div.move-page {
+		table {
+			width: 75%; margin: auto;
+			td, th {text-align: center; width: 33%; padding: 8px;}
+			thead {
+				tr {
+					
+					th {border-bottom: solid 4px @ll;font-weight: bold;}
+				}
+			}
+			tbody {
+				td {
+					div > span {
+						display: block; background: @bg; padding: 8px; text-align: center; border: solid 2px @ll;
+					}
+					div.node-current {
+						span.move-prev {font-weight: bold; float: left; background: @hl; display: block; padding: 8px; margin: -8px 0 0 -8px;}
+						span.move-next {font-weight: bold; float: right; background: @hl; display: block; padding: 8px; margin: -8px -8px 0 0;}
+					}
+				}
+			}
+		}
+	}
+}

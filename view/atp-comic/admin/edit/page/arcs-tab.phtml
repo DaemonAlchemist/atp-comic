@@ -1,5 +1,5 @@
 <?php $this->appendCss("/atp-comic/css/admin.less")?>
-<?php $this->appendJs("/atp-comic/js/comic.js")?>
+<?php $this->appendJs("/atp-comic/js/admin.js")?>
 
 <div class="tab-section">
 	<h3 class="section-header">Available Story Arcs</h3>
@@ -18,7 +18,7 @@
 
 	<div class="section" id="current-arcs">
 		<?php foreach($object->getNodes() as $node) {?>
-			<p id="arc-<?=$arc->id?>"><?=$node->arc->name?></p>
+			<p id="arc-<?=$arc->id?>"><?=$node->arc->name?> (page <?=$node->pageNumber?>)</p>
 		<?php } ?>
 	</div>
 </div>
