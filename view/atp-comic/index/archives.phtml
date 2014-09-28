@@ -9,7 +9,7 @@
 				<?php foreach($arc->getPageNodes() as $node) { ?>
 					<li>
 						<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
-							<?php if($this->siteParam("Show Page Names in Archives")) { ?>
+							<?php if($this->siteParam("comic-show-archive-page-names")) { ?>
 								(<?=$node->pageNumber?>) <?=$node->page->displayName()?>
 							<?php } else { ?>
 								[<?=$node->pageNumber?>]
@@ -34,7 +34,7 @@
 							<?php foreach($subArc->getPageNodes() as $node) { ?>
 								<li>
 									<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
-										<?php if($this->siteParam("Show Page Names in Archives")) { ?>
+										<?php if($this->siteParam("comic-show-archive-page-names")) { ?>
 											(<?=$node->pageNumber?>) <?=$node->page->displayName()?>
 										<?php } else { ?>
 											[<?=$node->pageNumber?>]
@@ -48,4 +48,8 @@
 			</ul>
 		<?php } ?>
 	<?php } ?>
+	
+	<div style="clear: both;"></div>
+	
+	{{block:archives-blurb}}
 </div>

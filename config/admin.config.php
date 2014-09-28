@@ -46,7 +46,7 @@ return array(
 		),
 		'parameters' => array(
 			'comic-default-arc' => array(
-				'identifier' => 'Default Story Arc',
+				'displayName' => 'Default Story Arc',
 				'group' => 'Comic',
 				'type' => 'ModelSelect',
 				'default' => '',
@@ -55,13 +55,13 @@ return array(
 				),
 			),
 			'comic-root-arc-name' => array(
-				'identifier' => 'Root Arc Name',
+				'displayName' => 'Root Arc Name',
 				'group' => 'Comic',
 				'type' => 'Text',
 				'default' => 'Comic',
 			),
 			'comic-show-archive-page-names' => array(
-				'identifier' => 'Show Page Names in Archives',
+				'displayName' => 'Show Archive Page Names',
 				'group' => 'Comic',
 				'type' => 'Boolean',
 				'default' => true,
