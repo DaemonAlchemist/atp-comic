@@ -6,6 +6,8 @@ require_once("Node.php");
 
 class Arc extends \ATP\ActiveRecord
 {
+	private $_pageNodes = null;
+
 	public function displayName()
 	{
 		return $this->name;
@@ -13,7 +15,7 @@ class Arc extends \ATP\ActiveRecord
 	
 	public function fullName()
 	{
-		return $this->parentArc->id ? $this->parentArc->fullName() . " - " . $this->displayName() : $this->displayName();
+		return $this->parentArc->id ? $this->displayName() . " / " . $this->parentArc->fullName() : $this->displayName();
 	}
 	
 	public function firstNode()
@@ -63,13 +65,18 @@ class Arc extends \ATP\ActiveRecord
 	
 	public function getPageNodes()
 	{
-		$options = array(
-			'where' => 'arc_id=' . $this->id,
-			'orderBy' => 'page_number ASC',
-		);
+		if(is_null($this->_pageNodes))
+		{		
+			$options = array(
+				'where' => 'arc_id=' . $this->id,
+				'orderBy' => 'page_number ASC',
+			);
+			
+			$node = new \ATPComic\Model\Node();
+			$this->_pageNodes = $node->loadMultiple($options);
+		}
 		
-		$node = new \ATPComic\Model\Node();
-		return $node->loadMultiple($options);
+		return $this->_pageNodes;
 	}
 	
 	public function getSubArcs()

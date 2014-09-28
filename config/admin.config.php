@@ -27,7 +27,7 @@ return array(
 				'defaultOrder' => 'name ASC',
 				'tabs' => array(
 					'Details' => array('name', 'url'),
-					'Related Arcs' => array('parent_arc_id', 'prev_arc_id', 'next_arc_id'),
+					'Related Arcs' => array('parent_arc_id', 'sub_arc_name', 'prev_arc_id', 'next_arc_id'),
 				),
 				'customTabs' => array(
 					'Pages' => 'atp-comic/admin/edit/arc/pages-tab.phtml',
@@ -53,6 +53,18 @@ return array(
 				'options' => array(
 					'className' => 'ATPComic\Model\Arc',
 				),
+			),
+			'comic-root-arc-name' => array(
+				'identifier' => 'Root Arc Name',
+				'group' => 'Comic',
+				'type' => 'Text',
+				'default' => 'Comic',
+			),
+			'comic-show-archive-page-names' => array(
+				'identifier' => 'Show Page Names in Archives',
+				'group' => 'Comic',
+				'type' => 'Boolean',
+				'default' => true,
 			),
 		),
 	),

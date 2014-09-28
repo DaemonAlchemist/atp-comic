@@ -7,16 +7,19 @@
 			<a href="<?=$this->url('comic/page', $node->prevNode()->getRoutingData())?>">&lt;</a>
 		</li>
 	<?php } else { ?>
-		<li class="arc-link">
+		<li class="arc-link prev-arc-link">
 			<?php if($node->hasPrevArc()) { ?>
 				<a href="<?=$this->url('comic/page', $node->arc->prevArc->lastNode()->getRoutingData())?>">&lt; <?=$node->arc->prevArc->displayName()?></a>
 			<?php } ?>
 		</li>
 	<?php } ?>
-	<li class="arc-name">
-		<a href="<?=$this->url('comic/archives', array('arc' => $node->arc->url))?>">
-			<?=$node->arc->fullName()?>
-		</a>
+	<li class="arc-page-list">
+		<select>
+			<option data-url=""><?=$node->arc->fullName()?></option>
+			<?php foreach($node->arc->getPageNodes() as $curNode) { ?>
+				<option data-url="<?=$this->url("comic/page", $curNode->getRoutingData())?>">(<?=$curNode->pageNumber?>) <?=$curNode->page->title?></option>
+			<?php } ?>
+		</select>
 	</li>
 	<?php if(!$node->isLast()) { ?>
 		<li>
@@ -26,7 +29,7 @@
 			<a href="<?=$this->url('comic/page', $node->arc->lastNode()->getRoutingData())?>">&gt;&gt;</a>
 		</li>
 	<?php } else { ?>
-		<li class="arc-link">
+		<li class="arc-link next-arc-link">
 			<?php if($node->hasNextArc()) { ?>
 				<a href="<?=$this->url('comic/page', $node->arc->nextArc->firstNode()->getRoutingData())?>"><?=$node->arc->nextArc->displayName()?> &gt;</a>
 			<?php } ?>

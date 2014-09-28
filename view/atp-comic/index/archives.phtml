@@ -1,17 +1,51 @@
-<?php foreach($arcs as $arc) { ?>
-	<h2>
-		<a href="<?=$this->url("comic/archives", array('arc' => $arc->url))?>">
-			<?=$arc->displayName()?>
-		</a>
-	</h2>
-	
-	<ul>
-		<?php foreach($arc->getPageNodes() as $node) { ?>
-			<li>
-				<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
-					<?=$node->page->displayName()?>
-				</a>
-			</li>
+<div id="archives">
+	<?php foreach($arcs as $arc) { ?>
+		<h2>
+			<?=$arc->displayName()?> - Archives
+		</h2>
+		
+		<?php if(count($arc->getSubArcs()) == 0) { ?>
+			<ul class="arc-pages">
+				<?php foreach($arc->getPageNodes() as $node) { ?>
+					<li>
+						<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
+							<?php if($this->siteParam("Show Page Names in Archives")) { ?>
+								(<?=$node->pageNumber?>) <?=$node->page->displayName()?>
+							<?php } else { ?>
+								[<?=$node->pageNumber?>]
+							<?php } ?>
+						</a>
+					</li>
+				<?php } ?>
+			</ul>
+		<?php } else { ?>
+			<ul class="sub-arcs">
+				<?php foreach($arc->getSubArcs() as $index => $subArc) { ?>
+					<li>
+						<h3>
+							<?=$arc->subArcName?> <?=$index + 1?> - <?=$subArc->name?>
+							<?php if(count($subArc->getSubArcs()) > 0) { ?>
+								<div class="browse-by-subarc">
+									(<a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">browse by <?=strtolower($subArc->subArcName)?></a>)
+								</div>
+							<?php } ?>
+						</h3>
+						<ul class="arc-pages">
+							<?php foreach($subArc->getPageNodes() as $node) { ?>
+								<li>
+									<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
+										<?php if($this->siteParam("Show Page Names in Archives")) { ?>
+											(<?=$node->pageNumber?>) <?=$node->page->displayName()?>
+										<?php } else { ?>
+											[<?=$node->pageNumber?>]
+										<?php } ?>
+									</a>
+								</li>
+							<?php } ?>
+						</ul>
+					</li>
+				<?php } ?>
+			</ul>
 		<?php } ?>
-	</ul>
-<?php } ?>
+	<?php } ?>
+</div>
