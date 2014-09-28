@@ -66,6 +66,24 @@ return array(
 				'type' => 'Boolean',
 				'default' => true,
 			),
+			'comic-show-nav-links-top' => array(
+				'displayName' => 'Show Top Nav Links',
+				'group' => 'Comic',
+				'type' => 'Boolean',
+				'default' => true,
+			),
+			'comic-show-nav-links-bottom' => array(
+				'displayName' => 'Show Bottom Nav Links',
+				'group' => 'Comic',
+				'type' => 'Boolean',
+				'default' => true,
+			),
+			'comic-show-archive-dropdown' => array(
+				'displayName' => 'Show Archive Dropdown',
+				'group' => 'Comic',
+				'type' => 'Boolean',
+				'default' => true,
+			),
 		),
 	),
 );
