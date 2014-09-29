@@ -12,16 +12,23 @@ class IndexController extends \ATPCore\Controller\AbstractController
 	{
 		$this->init();
 		
+		//Get the params
+		$arcId = $this->params('arc');
+		$pageUrl = $this->params('pageUrl');
+		
 		//Get the current arc
 		$arc = new \ATPComic\Model\Arc();
-		$arc->loadByUrl($this->params('arc'));
+		$arc->loadByUrl($arcId);
 		
 		//Get the current page
 		$page = new \ATPComic\Model\Page();
-		$page->loadByUrl($this->params('pageUrl'));
+		$page->loadByUrl($pageUrl);
 		
 		//Get the arc/page node
 		$node = new \ATPComic\Model\Node($arc, $page);
+		
+		//Save the current page in the session
+		$this->remember->currentComicPage = $node->id;
 		
 		$view = new \Zend\View\Model\ViewModel(array(
 			'arc' => $arc,
@@ -32,6 +39,20 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		return $view;
 	}
 	
+	public function bookmarkAction()
+	{
+		if(isset($this->remember->currentComicPage))
+		{
+			$nodeId = $this->remember->currentComicPage;
+			$node = new \ATPComic\Model\Node();
+			$node->loadById($nodeId);
+			$this->redirect()->toRoute('comic/page', $node->getRoutingData());
+		}
+		else
+		{
+			$this->redirect()->toRoute('home');
+		}
+	}
 	
 	public function archivesAction()
 	{

@@ -24,6 +24,16 @@ return array(
 							),
 						),
 					),
+					'bookmark' => array(
+						'type' => 'Literal',
+						'options' => array(
+							'route' => '/bookmark',
+							'defaults' => array(
+								'controller' => 'atp-comic-index',
+								'action' => 'bookmark',
+							),
+						),
+					),
 					'archives' => array(
 						'type'    => 'Segment',
 						'options' => array(
