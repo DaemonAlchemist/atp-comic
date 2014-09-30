@@ -1,0 +1,33 @@
+<?php $this->appendJs("/atp-comic/js/comic.js")?>
+<?php $this->appendCss("/atp-comic/css/comic.less")?>
+
+<div class="comic-page-widget">
+	<?php if($this->siteParam("comic-show-nav-links-top")) { ?>
+		<?=$navLinks?>
+	<?php } ?>
+
+	<img class="comic-img" src="<?=$this->basePath($node->page->filePath('image_file'))?>" />
+
+	<?php if($this->siteParam("comic-show-nav-links-bottom")) { ?>
+		<?=$navLinks?>
+	<?php } ?>
+
+	<hr />
+
+	<div class="ad-container">
+		<div class="pw-banner">
+			<a href="http://evilinnocence.com/backstage-pass" target="_blank"><img src="https://www.projectwonderful.com/img/uploads/pics/103229-1409300685.jpg" /></a>
+		</div>
+	</div>
+
+	<hr />
+
+	<h1 class="page-title">(<?=$node->pageNumber?>) <?=$node->page->title?></h1>
+
+	<p class="comic-text page-description"><?=$node->page->descriptionHtml?></p>
+
+	<?php if(!empty($node->page->transcriptHtml)) { ?>
+		<h2 class="transcript-title">Page Transcript</h2>
+		<p class="comic-text page-transcript"><?=$node->page->transcriptHtml?></p>
+	<?php } ?>
+</div>

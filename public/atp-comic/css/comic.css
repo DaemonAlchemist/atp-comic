@@ -1,0 +1,147 @@
+.buffered {
+ padding: 4px 8px;
+}
+.shadowed {
+ box-shadow: 0px 0px 8px;
+}
+.text-padding {
+ margin: 8px;
+}
+div.comic-page-widget img.comic-img {
+ display: block;
+ float: left;
+ width: 808px;
+ margin-right: 8px;
+}
+div.comic-page-widget img.comic-img:last-child {
+ margin-right: 0;
+}
+div.comic-page-widget h1.page-title {
+ margin: 8px;
+}
+div.comic-page-widget h2.transcript-title {
+ margin: 8px;
+}
+div.comic-page-widget p.comic-text {
+ margin: 8px;
+ margin-bottom: 32px;
+}
+div.comic-page-widget p.page-transcript {
+ border: solid 1px;
+ padding: 4px 8px;
+ margin-bottom: 8px;
+}
+div.comic-page-widget hr {
+ display: none;
+}
+ul.comic-nav-links {
+ width: 808px;
+ height: 32px;
+ margin: auto;
+ margin-bottom: 8px;
+}
+ul.comic-nav-links:last-child {
+ margin-bottom: 0px;
+}
+ul.comic-nav-links li {
+ display: block;
+ float: left;
+ width: 60px;
+ margin-right: 8px;
+ height: 32px;
+ background: #e4f0fc;
+ margin-bottom: 8px;
+}
+ul.comic-nav-links li:last-child {
+ margin-right: 0;
+}
+ul.comic-nav-links li:first-child {
+ margin-left: 128px;
+}
+ul.comic-nav-links li.arc-page-list {
+ display: block;
+ float: left;
+ width: 264px;
+ margin-right: 8px;
+ background: none;
+}
+ul.comic-nav-links li.arc-page-list:last-child {
+ margin-right: 0;
+}
+ul.comic-nav-links li.arc-page-list a {
+ display: block;
+ padding: 8px;
+ text-decoration: none;
+}
+ul.comic-nav-links li.arc-page-list a:hover {
+ text-decoration: underline;
+}
+ul.comic-nav-links li.arc-page-list select {
+ width: 100%;
+ height: 32px;
+ text-align: center;
+}
+ul.comic-nav-links li.arc-page-list select option {
+ padding: 8px;
+}
+ul.comic-nav-links li.arc-page-list select option:first-child {
+ text-align: center;
+ background: #aacff4;
+}
+ul.comic-nav-links li.arc-link {
+ display: block;
+ float: left;
+ width: 128px;
+ margin-right: 8px;
+}
+ul.comic-nav-links li.arc-link:last-child {
+ margin-right: 0;
+}
+ul.comic-nav-links li a {
+ display: block;
+ width: 100%;
+ text-align: center;
+ font-weight: bold;
+ text-decoration: none;
+ padding: 8px;
+}
+div.all-arc-links {
+ display: none;
+}
+#archives a {
+ text-decoration: none;
+}
+#archives a:hover {
+ text-decoration: underline;
+}
+#archives h2 {
+ padding: 4px 8px;
+ border-bottom: solid 2px;
+ font-size: 18pt;
+ margin-bottom: 8px;
+}
+#archives h3 {
+ padding: 4px 8px;
+ background: #aacff4;
+}
+#archives h3 .browse-by-subarc {
+ float: right;
+}
+#archives ul.arc-pages li {
+ display: block;
+ float: left;
+ margin: 8px;
+}
+#archives ul.arc-pages li:before {
+ content: '[';
+}
+#archives ul.arc-pages li:after {
+ content: ']';
+}
+#archives ul.arc-pages li a {
+ width: 100%;
+ text-decoration: none;
+}
+#archives ul.sub-arcs {
+ clear: both;
+}

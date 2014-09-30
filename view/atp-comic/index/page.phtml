@@ -1,4 +1,4 @@
-<?php $this->headTitle($arc->name)?>
-<?php $this->headTitle($page->title)?>
+<?php $this->headTitle($node->arc->name)?>
+<?php $this->headTitle($node->page->title)?>
 
-<?=$this->partial('/atp-comic/shared/page_widget.phtml',array('page' => $page, 'node' => $node))?>
+<?=$comicPage?>

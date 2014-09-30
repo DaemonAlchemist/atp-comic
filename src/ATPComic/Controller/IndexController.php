@@ -30,11 +30,13 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		//Save the current page in the session
 		$this->remember->currentComicPage = $node->id;
 		
-		$view = new \Zend\View\Model\ViewModel(array(
-			'arc' => $arc,
-			'page' => $page,
-			'node' => $node,
-		));
+		$view = new \Zend\View\Model\ViewModel();
+		$view->node = $node;
+		
+		//Create the page widget
+		$comicPage = new \ATPComic\View\Widget\Page();
+		$comicPage->node = $node;
+		$view->addChild($comicPage, 'comicPage');		
 		
 		return $view;
 	}

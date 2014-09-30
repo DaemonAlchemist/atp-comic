@@ -1,3 +1,5 @@
+<?php $this->appendCSS("/atp-comic/css/comic.less")?>
+
 <div id="archives">
 	<?php foreach($arcs as $arc) { ?>
 		<h2>
@@ -12,7 +14,7 @@
 							<?php if($this->siteParam("comic-show-archive-page-names")) { ?>
 								(<?=$node->pageNumber?>) <?=$node->page->displayName()?>
 							<?php } else { ?>
-								[<?=$node->pageNumber?>]
+								<?=$node->pageNumber?>
 							<?php } ?>
 						</a>
 					</li>
@@ -26,7 +28,9 @@
 							<?=$arc->subArcName?> <?=$index + 1?> - <?=$subArc->name?>
 							<?php if(count($subArc->getSubArcs()) > 0) { ?>
 								<div class="browse-by-subarc">
-									(<a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">browse by <?=strtolower($subArc->subArcName)?></a>)
+									(<a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">
+										browse this <?=strtolower($arc->subArcName)?> by <?=strtolower($subArc->subArcName)?>
+									</a>)
 								</div>
 							<?php } ?>
 						</h3>
@@ -37,7 +41,7 @@
 										<?php if($this->siteParam("comic-show-archive-page-names")) { ?>
 											(<?=$node->pageNumber?>) <?=$node->page->displayName()?>
 										<?php } else { ?>
-											[<?=$node->pageNumber?>]
+											<?=$node->pageNumber?>
 										<?php } ?>
 									</a>
 								</li>

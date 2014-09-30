@@ -1,0 +1,67 @@
+@import "definitions.less";
+
+/* Comic page */
+div.comic-page-widget {
+	img.comic-img {.columns(6);}
+	h1.page-title {.text-padding;}
+	h2.transcript-title {.text-padding;}
+	p.comic-text {.text-padding; .spaced(4);}
+	p.page-transcript{
+		border: solid 1px; .buffered; .spaced(1);
+	}
+	hr {display: none;}
+}
+
+/* Nav links */
+ul.comic-nav-links {
+	.columnsWidth(6); .rows(1); margin: auto; .spaced(1);
+	&:last-child {.spaced(0);}
+	li {
+		.columns(0.5); .rows(1); background: @hl; .spaced(1);
+		&:first-child{.columnSkip(1);}
+		&.arc-page-list {
+			.columns(2); background: none;
+			a {
+				display: block; padding: 8px; text-decoration: none;
+				&:hover {text-decoration: underline;}
+			}
+			select {
+				width: 100%; .rows(1); text-align: center;
+				option {
+					padding: 8px;
+					&:first-child {text-align: center; background: @ll;}
+				}
+			}
+		}
+		&.arc-link {.columns(1);}
+		a {display: block; width: 100%; text-align: center; font-weight: bold; text-decoration: none; padding: 8px;}
+	}
+}
+
+div.all-arc-links {display: none;}
+
+/* Comic archives */
+#archives {
+	a {
+		text-decoration: none;
+		&:hover {text-decoration: underline;}
+	}
+	h2 {
+		.buffered; border-bottom: solid 2px; font-size: 18pt; .spaced(1);
+	}
+	h3 {
+		.buffered; background: @ll;
+		.browse-by-subarc {float: right;}
+	}
+	ul.arc-pages {
+		li {
+			display: block; float: left; margin: @gutterWidth;
+			&:before {content: '[';}
+			&:after {content: ']';}
+			a {width: 100%; text-decoration: none;}
+		}
+	}
+	ul.sub-arcs {
+		clear: both;
+	}
+}
