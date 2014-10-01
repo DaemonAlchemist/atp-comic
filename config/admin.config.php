@@ -84,6 +84,12 @@ return array(
 				'type' => 'Boolean',
 				'default' => true,
 			),
+			'comic-use-adsense' => array(
+				'displayName' => 'Include Adsense Ads',
+				'group' => 'Comic',
+				'type' => 'Boolean',
+				'default' => true,
+			),
 		),
 	),
 );

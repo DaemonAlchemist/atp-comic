@@ -14,11 +14,11 @@
 
 	<hr />
 
-	<div class="ad-container">
-		<div class="pw-banner">
-			<a href="http://evilinnocence.com/backstage-pass" target="_blank"><img src="https://www.projectwonderful.com/img/uploads/pics/103229-1409300685.jpg" /></a>
+	<?php if($this->siteParam("comic-use-adsense")) { ?>
+		<div class="ad-container">
+			<div class="ad"><?=$this->adsense("inline-ad")?></div>
 		</div>
-	</div>
+	<?php } ?>
 
 	<hr />
 

@@ -34,6 +34,12 @@ div.comic-page-widget p.page-transcript {
 div.comic-page-widget hr {
  display: none;
 }
+div.comic-page-widget div.ad-container {
+ text-align: center;
+}
+div.comic-page-widget div.ad-container div.ad {
+ display: inline-block;
+}
 ul.comic-nav-links {
  width: 808px;
  height: 32px;
