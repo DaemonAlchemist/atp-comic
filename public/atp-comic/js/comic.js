@@ -10,4 +10,12 @@ $(function(){
 		$(".all-arc-links").hide();
 		$(".current-arc-links").show();
 	});
+	
+	//Toggle page transcripts
+	if(!showTranscripts) {
+		$("div.page-transcript p").hide();
+	}
+	$("div.page-transcript h2").click(function(){
+		$("div.page-transcript p").toggle();
+	});
 });

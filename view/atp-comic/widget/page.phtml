@@ -24,10 +24,19 @@
 
 	<h1 class="page-title">(<?=$node->pageNumber?>) <?=$node->page->title?></h1>
 
-	<p class="comic-text page-description"><?=$node->page->descriptionHtml?></p>
+	<p class="comic-text page-description">
+		<?php if(strlen($node->page->descriptionHtml) > 0) { ?>
+			<?=$node->page->descriptionHtml?>
+		<?php } else { ?>
+			<em>&lt;No page commentary.&gt;</em>
+		<?php } ?>
+	</p>
 
-	<?php if(!empty($node->page->transcriptHtml)) { ?>
-		<h2 class="transcript-title">Page Transcript</h2>
-		<p class="comic-text page-transcript"><?=$node->page->transcriptHtml?></p>
+	<?php if(strlen($node->page->transcriptHtml) > 0) { ?>
+		<script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts')?>;</script>
+		<div class="page-transcript">
+			<h2 class="transcript-title" title="Click to show page transcript">Page Transcript</h2>
+			<p class="comic-text page-transcript"><?=$node->page->transcriptHtml?></p>
+		</div>
 	<?php } ?>
 </div>

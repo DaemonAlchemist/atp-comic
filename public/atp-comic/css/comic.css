@@ -18,6 +18,8 @@ div.comic-page-widget img.comic-img:last-child {
 }
 div.comic-page-widget h1.page-title {
  margin: 8px;
+ background: #aacff4;
+ padding: 4px 8px;
 }
 div.comic-page-widget h2.transcript-title {
  margin: 8px;
@@ -25,11 +27,6 @@ div.comic-page-widget h2.transcript-title {
 div.comic-page-widget p.comic-text {
  margin: 8px;
  margin-bottom: 32px;
-}
-div.comic-page-widget p.page-transcript {
- border: solid 1px;
- padding: 4px 8px;
- margin-bottom: 8px;
 }
 div.comic-page-widget hr {
  display: none;
@@ -39,6 +36,29 @@ div.comic-page-widget div.ad-container {
 }
 div.comic-page-widget div.ad-container div.ad {
  display: inline-block;
+}
+div.comic-page-widget div.page-transcript h2 {
+ text-align: center;
+}
+div.comic-page-widget div.page-transcript h2:hover {
+ text-decoration: underline;
+}
+div.comic-page-widget div.page-transcript p.page-transcript {
+ border: dashed 1px;
+ padding: 4px 8px;
+ margin-bottom: 8px;
+ display: block;
+ float: left;
+ width: 400px;
+ margin-right: 8px;
+ margin-left: 196px;
+ font-size: small;
+}
+div.comic-page-widget div.page-transcript p.page-transcript:last-child {
+ margin-right: 0;
+}
+div.comic-page-widget div.page-transcript p.page-transcript strong {
+ font-size: small;
 }
 ul.comic-nav-links {
  width: 808px;

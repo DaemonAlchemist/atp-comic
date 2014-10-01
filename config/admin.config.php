@@ -84,6 +84,12 @@ return array(
 				'type' => 'Boolean',
 				'default' => true,
 			),
+			'comic-show-transcripts' => array(
+				'displayName' => 'Show Page Transcripts',
+				'group' => 'Comic',
+				'type' => 'Boolean',
+				'default' => true,
+			),
 			'comic-use-adsense' => array(
 				'displayName' => 'Include Adsense Ads',
 				'group' => 'Comic',

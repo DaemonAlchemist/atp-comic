@@ -3,16 +3,23 @@
 /* Comic page */
 div.comic-page-widget {
 	img.comic-img {.columns(6);}
-	h1.page-title {.text-padding;}
+	h1.page-title {.text-padding; background: @ll; .buffered;}
 	h2.transcript-title {.text-padding;}
 	p.comic-text {.text-padding; .spaced(4);}
-	p.page-transcript{
-		border: solid 1px; .buffered; .spaced(1);
-	}
 	hr {display: none;}
 	div.ad-container {
 		text-align: center;
 		div.ad {display: inline-block;}
+	}
+	div.page-transcript {
+		h2 {
+			text-align: center;
+			&:hover {text-decoration: underline;}
+		}
+		p.page-transcript{
+			border: dashed 1px; .buffered; .spaced(1); .columns(3); .columnSkip(1.5); font-size: small;
+			strong {font-size: small;}
+		}
 	}
 }
 
