@@ -60,6 +60,18 @@ return array(
 				'type' => 'Text',
 				'default' => 'Comic',
 			),
+			'comic-bookmark-text' => array(
+				'displayName' => 'Bookmark Link Text',
+				'group' => 'Comic',
+				'type' => 'Text',
+				'default' => 'Continue where you left off.',
+			),
+			'comic-first-page-text' => array(
+				'displayName' => 'First Page Link Text',
+				'group' => 'Comic',
+				'type' => 'Text',
+				'default' => 'New reader?  Start here.',
+			),
 			'comic-show-archive-page-names' => array(
 				'displayName' => 'Show Archive Page Names',
 				'group' => 'Comic',
