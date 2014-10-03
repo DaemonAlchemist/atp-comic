@@ -3,7 +3,7 @@
 return array(
 	'modules' => array(
 		'ATPComic' => array(
-			'version' => '1.0',
+			'version' => '0.9.0',
 		),
 	),
 );
