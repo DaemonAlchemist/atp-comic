@@ -26,7 +26,7 @@
 					<li>
 						<h3>
 							<?=$arc->subArcName?> <?=$index + 1?> - <?=$subArc->name?>
-							<?php if(count($subArc->getSubArcs()) > 0) { ?>
+							<?php if(count($subArc->getSubArcs()) > 1) { ?>
 								<div class="browse-by-subarc">
 									(<a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">
 										browse this <?=strtolower($arc->subArcName)?> by <?=strtolower($subArc->subArcName)?>
