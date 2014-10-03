@@ -57,6 +57,13 @@ class Page extends \ATP\ActiveRecord
 		
 			$newNode->save();
 		}
+		
+		//Update active flag on nodes
+		foreach($this->getNodes() as $node)
+		{
+			$node->isActive = $this->isActive;
+			$node->save();
+		}
 	}
 	
 	public function getNodes()

@@ -22,7 +22,7 @@ class Arc extends \ATP\ActiveRecord
 	{
 		$node = new \ATPComic\Model\Node();
 		$nodes = $node->loadMultiple(array(
-			'where' => "arc_id = ?",
+			'where' => "arc_id = ? and is_active=1",
 			'orderBy' => 'page_number ASC',
 			'limit' => 1,
 			'data' => array($this->id)
@@ -35,7 +35,7 @@ class Arc extends \ATP\ActiveRecord
 	{
 		$node = new \ATPComic\Model\Node();
 		$nodes = $node->loadMultiple(array(
-			'where' => "arc_id = ?",
+			'where' => "arc_id = ? and is_active=1",
 			'orderBy' => 'page_number DESC',
 			'limit' => 1,
 			'data' => array($this->id)
@@ -68,8 +68,9 @@ class Arc extends \ATP\ActiveRecord
 		if(is_null($this->_pageNodes))
 		{		
 			$options = array(
-				'where' => 'arc_id=' . $this->id,
+				'where' => 'arc_id = ? and is_active=1',
 				'orderBy' => 'page_number ASC',
+				'data' => array($this->id),
 			);
 			
 			$node = new \ATPComic\Model\Node();
@@ -81,7 +82,9 @@ class Arc extends \ATP\ActiveRecord
 	
 	public function getSubArcs()
 	{
-		return $this->getAtpcomicArcsByParentArc();
+		return array_filter($this->getAtpcomicArcsByParentArc(), function($arc){
+			return count($arc->getPageNodes()) > 0;
+		});
 	}
 }
 Arc::init();
