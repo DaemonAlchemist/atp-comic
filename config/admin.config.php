@@ -10,7 +10,7 @@ return array(
 				'displayColumns' => array('Url'),
 				'defaultOrder' => 'id DESC',
 				'tabs' => array(
-					'Details' => array('title', 'url', 'post_date'),
+					'Details' => array('title', 'url', 'post_date', 'is_active'),
 					'Comic' => array('image_file', 'transcript_html'),
 					'Commentary' => array('description_html'),
 				),
@@ -40,7 +40,7 @@ return array(
 				'displayColumns' => array(),
 				'defaultOrder' => 'page_id ASC',
 				'tabs' => array(
-					'Details' => array('arc_id', 'page_id', 'page_number'),
+					'Details' => array('arc_id', 'page_id', 'page_number', 'is_active'),
 				),
 			),
 		),
