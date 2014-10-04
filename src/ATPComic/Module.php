@@ -2,10 +2,19 @@
 
 namespace ATPComic;
 
-class Module extends \ATP\Module
+class Module extends \ATP\Module implements \Zend\ModuleManager\Feature\ConfigProviderInterface
 {
 	protected $_moduleName = "ATPComic";
 	protected $_moduleBaseDir = __DIR__;
+	
+    public function getConsoleUsage(\Zend\Console\Adapter\AdapterInterface $console)
+    {
+        return array(
+            'Release Pages',
+            'release-comic-pages <arc>' => 'Release newest comic pages',
+            array('<arc>', '(optional) arc URL', 'release newest page for specific arc only'),
+        );
+    }
 	
 	protected function getInstallDbQueries()
 	{

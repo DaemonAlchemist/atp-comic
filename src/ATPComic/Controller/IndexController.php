@@ -24,6 +24,13 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		$page = new \ATPComic\Model\Page();
 		$page->loadByUrl($pageUrl);
 		
+		//Make sure the page is active
+		if(!$page->isActive)
+		{
+			$this->getResponse()->setStatusCode(404);
+			return;
+		}
+		
 		//Get the arc/page node
 		$node = new \ATPComic\Model\Node($arc, $page);
 		

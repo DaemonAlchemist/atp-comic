@@ -58,6 +58,21 @@ return array(
 			),
         ),
     ),
+	 'console' => array(
+        'router' => array(
+            'routes' => array(
+                'release-pages' => array(
+                    'options' => array(
+                        'route'    => 'release-comic-pages [arc]',
+                        'defaults' => array(
+                            'controller' => 'atp-comic-api',
+                            'action'     => 'release-pages',
+                        )
+                    )
+                )
+            )
+        )
+    ),
     'controllers' => array(
         'invokables' => array(
             'atp-comic-index' => 'ATPComic\Controller\IndexController',

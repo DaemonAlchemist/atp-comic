@@ -46,7 +46,7 @@ class Node extends \ATP\ActiveRecord
 		if(is_null($this->_prevNode))
 		{
 			$options = array(
-				'where' => 'arc_id = ? AND page_number < ?',
+				'where' => 'arc_id = ? AND page_number < ? AND is_active = 1',
 				'orderBy' => 'page_number DESC',
 				'limit' => 1,
 				'data' => array($this->arcId, $this->pageNumber),
@@ -65,7 +65,7 @@ class Node extends \ATP\ActiveRecord
 		if(is_null($this->_nextNode))
 		{
 			$options = array(
-				'where' => 'arc_id = ? AND page_number > ?',
+				'where' => 'arc_id = ? AND page_number > ? AND is_active = 1',
 				'orderBy' => 'page_number ASC',
 				'limit' => 1,
 				'data' => array($this->arcId, $this->pageNumber),

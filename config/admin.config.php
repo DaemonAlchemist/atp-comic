@@ -7,7 +7,7 @@ return array(
 				'displayName' => 'Page',
 				'class' => 'ATPComic\Model\Page',
 				'category' => 'Comic',
-				'displayColumns' => array('Url'),
+				'displayColumns' => array('Url', 'IsActive'),
 				'defaultOrder' => 'id DESC',
 				'tabs' => array(
 					'Details' => array('title', 'url', 'post_date', 'is_active'),
@@ -37,11 +37,18 @@ return array(
 				'displayName' => 'Node',
 				'class' => 'ATPComic\Model\Node',
 				'category' => 'Comic',
-				'displayColumns' => array(),
+				'displayColumns' => array('IsActive'),
 				'defaultOrder' => 'page_id ASC',
 				'tabs' => array(
 					'Details' => array('arc_id', 'page_id', 'page_number', 'is_active'),
 				),
+			),
+			'atpcomic_release_schedule' => array(
+				'displayName' => 'Release Schedule',
+				'class' => 'ATPComic\Model\ReleaseSchedule',
+				'category' => 'Comic',
+				'displayColumns' => array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+				'defaultOrder' => 'arc_id ASC',
 			),
 		),
 		'parameters' => array(

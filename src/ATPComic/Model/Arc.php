@@ -82,7 +82,7 @@ class Arc extends \ATP\ActiveRecord
 	
 	public function getSubArcs()
 	{
-		return array_filter($this->getAtpcomicArcsByParentArc(), function($arc){
+		return array_filter((array)$this->getAtpcomicArcsByParentArc(), function($arc){
 			return count($arc->getPageNodes()) > 0;
 		});
 	}
