@@ -5,7 +5,7 @@
 		<?php foreach($object->getAtpcomicNodesByArc() as $node) { ?>
 			<li>
 				<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
-					<?=$node->page->displayName()?>
+					(<?=$node->pageNumber?>) - <?=$node->page->displayName()?>
 				</a>
 			</li>
 		<?php } ?>

@@ -4,7 +4,7 @@ return array(
 	'admin' => array(
 		'models' =>array(
 			'atpcomic_page' => array(
-				'displayName' => 'Page',
+				'displayName' => 'Comic Page',
 				'class' => 'ATPComic\Model\Page',
 				'category' => 'Comic',
 				'displayColumns' => array('Url', 'IsActive'),
@@ -20,7 +20,7 @@ return array(
 				),
 			),
 			'atpcomic_arc' => array(
-				'displayName' => 'Arc',
+				'displayName' => 'Story Arc',
 				'class' => 'ATPComic\Model\Arc',
 				'category' => 'Comic',
 				'displayColumns' => array('Url'),
