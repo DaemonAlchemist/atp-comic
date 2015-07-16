@@ -8,7 +8,26 @@ class ReleaseSchedule extends \ATP\ActiveRecord
 {
 	public function displayName()
 	{
-		return $this->arc->name;
+		$text = "The story arc \"{$this->arc->name}\"";
+		$days = $this->getReleaseDays();
+		$text .= count($days) > 0
+			? " releases each week on " . implode(", ", $days) . "."
+			: " does not auto-release.";
+		return $text;
+	}
+	
+	public function getReleaseDays()
+	{
+		$days = array();
+		if($this->sunday) $days[] = "Sunday";
+		if($this->monday) $days[] = "Monday";
+		if($this->tuesday) $days[] = "Tuesday";
+		if($this->wednesday) $days[] = "Wednesday";
+		if($this->thursday) $days[] = "Thursday";
+		if($this->friday) $days[] = "Friday";
+		if($this->saturday) $days[] = "Saturday";
+		
+		return $days;
 	}
 	
 	public function run()

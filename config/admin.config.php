@@ -47,7 +47,7 @@ return array(
 				'displayName' => 'Release Schedule',
 				'class' => 'ATPComic\Model\ReleaseSchedule',
 				'category' => 'Comic',
-				'displayColumns' => array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+				'displayColumns' => array(),
 				'defaultOrder' => 'arc_id ASC',
 			),
 		),
