@@ -18,7 +18,7 @@
 
 	<div class="section" id="current-arcs">
 		<?php foreach($object->getNodes() as $node) {?>
-			<p id="arc-<?=$arc->id?>"><?=$node->arc->name?> (page <?=$node->pageNumber?>)</p>
+			<p id="arc-<?=$node->arc->id?>"><?=$node->arc->name?> (page <?=$node->pageNumber?>)</p>
 		<?php } ?>
 	</div>
 </div>

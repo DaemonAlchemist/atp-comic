@@ -2,12 +2,15 @@ $(function(){
 	//Admin page edit arc tab
 	$("span.arc-selector").click(function(){
 		var checkbox = $(this).find("input");
+		var arcParagraph = $("#current-arcs").find("p#arc-" + checkbox.val());
 		if(checkbox.prop("checked")) {
 			checkbox.prop("checked", false);
 			checkbox.parent().removeClass("arc-selected");
+			arcParagraph.addClass("arc-removed");
 		} else {
 			checkbox.prop("checked", true);
 			checkbox.parent().addClass("arc-selected");
+			arcParagraph.removeClass("arc-removed");
 		}
 	});
 	

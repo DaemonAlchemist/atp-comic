@@ -34,6 +34,9 @@
 #object-story_arcs-tab #current-arcs p {
  padding: 8px;
 }
+#object-story_arcs-tab #current-arcs p.arc-removed {
+ text-decoration: line-through;
+}
 #object-move_page-tab div.move-page {
  height: 100px;
 }
