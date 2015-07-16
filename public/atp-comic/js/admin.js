@@ -12,6 +12,7 @@ $(function(){
 	});
 	
 	//Admin page edit move tab
+	$("div#page-arc-lists").accordion();
 	$("span.node-mover").click(function(){
 		var div = $(this).parents("div.move-page");
 		

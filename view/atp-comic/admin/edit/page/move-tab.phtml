@@ -1,47 +1,56 @@
 <div class="tab-full-section">
 	<p>Click the arrows to move this page within its story arcs</>
 
-	<?php foreach($object->getNodes() as $node) { ?>
-		<h3 class="section-header"><?=$node->arc->name?></h3>
-		
-		<div class="section move-page">
-			<table>
-				<tbody>
-					<tr>
-						<td class="node node-after">
-							<div class="node-before">
-								<span>
-									<?php if($node->prevNode()) { ?>
-										<?=$node->prevNode()->page->title?>
-									<?php } else { ?>
-										&nbsp;
-									<?php } ?>
-								</span>
-							</div>
-						</td>
-						<td class="node node-current" data-nodeId="<?=$node->id?>">
-							<div class="node-current">
-								<span>
-									<span class="node-mover move-prev" data-direction="prev">&lt;</span>
-									<?=$object->title?>
-									<span class="node-mover move-next" data-direction="next">&gt;</span>
-								</span>
-							</div>
-						</td>
-						<td class="node node-after">
-							<div class="node-after">
-								<span>
-									<?php if($node->nextNode()) { ?>
-										<?=$node->nextNode()->page->title?>
-									<?php } else { ?>
-										&nbsp;
-									<?php } ?>
-								</span>
-							</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	<?php } ?>
+	<div id="page-arc-lists">
+		<?php foreach($object->getNodes() as $node) { ?>
+			<h3 class="section-header"><?=$node->arc->name?></h3>
+			
+			<div class="section move-page">
+				<table>
+					<thead>
+						<tr>
+							<th>Previous Page</th>
+							<th>This Page</th>
+							<th>Next Page</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="node node-after">
+								<div class="node-before">
+									<span>
+										<?php if($node->prevNode()) { ?>
+											<?=$node->prevNode()->page->title?>
+										<?php } else { ?>
+											&nbsp;
+										<?php } ?>
+									</span>
+								</div>
+							</td>
+							<td class="node node-current" data-nodeId="<?=$node->id?>">
+								<div class="node-current">
+									<span>
+										<span class="node-mover move-prev" data-direction="prev">&lt;</span>
+										<?=$object->title?>
+										<span class="node-mover move-next" data-direction="next">&gt;</span>
+									</span>
+								</div>
+							</td>
+							<td class="node node-after">
+								<div class="node-after">
+									<span>
+										<?php if($node->nextNode()) { ?>
+											<?=$node->nextNode()->page->title?>
+										<?php } else { ?>
+											&nbsp;
+										<?php } ?>
+									</span>
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		<?php } ?>
+	</div>
 </div>

@@ -34,6 +34,9 @@
 #object-story_arcs-tab #current-arcs p {
  padding: 8px;
 }
+#object-move_page-tab div.move-page {
+ height: 100px;
+}
 #object-move_page-tab div.move-page table {
  width: 75%;
  margin: auto;
