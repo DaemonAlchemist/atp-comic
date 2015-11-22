@@ -1,78 +1,128 @@
-@import "definitions.less";
+@import "css/bootstrap-3.3.5/bootstrap-mixins.less";
 
-/* Comic page */
-div.comic-page-widget {
-	img.comic-img {.columns(6);}
-	h1.page-title {.text-padding; background: @ll; .buffered;}
-	h2.transcript-title {.text-padding;}
-	p.comic-text {.text-padding; .spaced(4);}
-	hr {display: none;}
-	div.ad-container {
-		text-align: center;
-		div.ad {display: inline-block;}
-	}
-	div.page-transcript {
-		h2 {
-			text-align: center;
-			&:hover {text-decoration: underline;}
-		}
-		p.page-transcript{
-			border: dashed 1px; .buffered; .spaced(1); .columns(3); .columnSkip(1.5); font-size: small;
-			strong {font-size: small;}
-		}
-	}
-}
+div#page {
+  .container-fluid();
+  max-width: 1108px;
+  min-width: 520px;
+  margin: auto;
 
-/* Nav links */
-ul.comic-nav-links {
-	.columnsWidth(6); .rows(1); margin: auto; .spaced(1);
-	&:last-child {.spaced(0);}
-	li {
-		.columns(0.5); .rows(1); background: @hl; .spaced(1);
-		&:first-child{.columnSkip(1);}
-		&.arc-page-list {
-			.columns(2); background: none;
-			a {
-				display: block; padding: 8px; text-decoration: none;
-				&:hover {text-decoration: underline;}
-			}
-			select {
-				width: 100%; .rows(1); text-align: center;
-				option {
-					padding: 8px;
-					&:first-child {text-align: center; background: @ll;}
-				}
-			}
-		}
-		&.arc-link {.columns(1);}
-		a {display: block; width: 100%; text-align: center; font-weight: bold; text-decoration: none; padding: 8px;}
-	}
-}
+  div#page-header img {
+    clear: both;
+    .img-responsive;
+  }
 
-div.all-arc-links {display: none;}
+  nav {
+    .navbar;
+    .navbar-default;
 
-/* Comic archives */
-#archives {
-	a {
-		text-decoration: none;
-		&:hover {text-decoration: underline;}
-	}
-	h2 {
-		.buffered; border-bottom: solid 2px; font-size: 18pt; .spaced(1);
-	}
-	h3 {
-		.buffered; background: @ll;
-		.browse-by-subarc {float: right;}
-	}
-	ul.arc-pages {
-		li {
-			display: block; float: left; margin: @gutterWidth;
-			&:before {content: '[';}
-			&:after {content: ']';}
-			a {width: 100%; text-decoration: none;}
-		}
-	}
-	ul.sub-arcs {
-		clear: both;
-	}
+    div.navbar-header {
+      button {
+        .navbar-toggle;
+      }
+      a {
+        .navbar-brand;
+      }
+    }
+
+    ul.social-share li {
+      a {
+        padding-right: 4px;
+        padding-left: 4px;
+        img {
+          width: 24px;
+        }
+      }
+      &:last-child a {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  div#right-sidebar {
+    a.quick-link {
+      font-size: 72pt;
+      display: block;
+      text-align: center;
+      &.bookmark i {
+        .glyphicon;
+        .glyphicon-book;
+      }
+      &.continue i {
+        .glyphicon;
+        .glyphicon-home;
+      }
+    }
+  }
+
+  div#archives {
+    .make-md-column(10);
+    ul.arc-pages {
+      list-style-type: none;
+      padding: 0;
+      li {
+        display: inline-block;
+        margin-bottom: 4px;
+        a {
+          .btn;
+          .btn-default;
+        }
+      }
+    }
+    ul.sub-arcs {
+      list-style-type: none;
+      padding: 0;
+    }
+  }
+
+  ul.comic-nav-links {
+    padding: 0;
+    li {
+      display: inline;
+      font-size: xx-large;
+      text-align: center;
+      i {.glyphicon;}
+      &.prev-arc-link {
+        .make-xs-column(5); text-align: right;
+        i{.glyphicon-arrow-left;}
+      }
+      &.first-page-link i{.glyphicon-fast-backward; .make-xs-column(1); .make-xs-column-offset(3);}
+      &.prev-page-link i{.glyphicon-arrow-left; .make-xs-column(1);}
+      &.arc-page-list {
+        .make-xs-column(2);
+        text-align: center;
+        i {.glyphicon-folder-open; .visible-sm; .visible-xs;}
+        span {.hidden-sm; .hidden-xs;}
+      }
+      &.next-page-link i{.glyphicon-arrow-right; .make-xs-column(1);}
+      &.last-page-link i{.glyphicon-fast-forward; .make-xs-column(1);}
+      &.next-arc-link {
+        .make-xs-column(5); text-align: left;
+        i{.glyphicon-arrow-right;}
+      }
+    }
+  }
+
+  div.archive-dropdown {
+    clear: both;
+    text-align: center;
+    font-size: x-large;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  div.comic-page-widget {
+    .make-md-column(10);
+    p.page-name {text-align: center;}
+    img.comic-img {.img-responsive;}
+    div.transcript, div.commentary {
+      .make-sm-column(6);
+    }
+  }
+
+  footer {
+    .make-xs-column(12);
+    p {
+      text-align: center;
+    }
+  }
 }

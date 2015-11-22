@@ -1,0 +1,7 @@
+<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
+    <?php if($this->siteParam("comic-show-archive-page-names")) { ?>
+        (<?=$node->pageNumber?>) <?=$node->page->displayName()?>
+    <?php } else { ?>
+        <?=$node->pageNumber?>
+    <?php } ?>
+</a>

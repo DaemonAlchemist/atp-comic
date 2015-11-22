@@ -2,17 +2,23 @@
 <?php $this->appendCss("/atp-comic/css/comic.less")?>
 
 <div class="comic-page-widget">
-	<?php if($this->siteParam("comic-show-nav-links-top")) { ?>
+    <p class="page-name">
+        <em><a href="<?=$this->url('comic/archives', array('arc' => $node->arc->url))?>" title="<?=$node->arc->fullName()?>">
+                <?=$node->arc->name?>
+        </a></em>, page <?=$node->pageNumber?>
+    </p>
+
+    <?php if($this->siteParam("comic-show-nav-links-top")) { ?>
 		<?=$navLinks?>
 	<?php } ?>
 
 	<img class="comic-img" src="<?=$this->basePath($node->page->filePath('image_file'))?>" />
 
+    <h1 class="page-title"><?=$node->page->title?></h1>
+
 	<?php if($this->siteParam("comic-show-nav-links-bottom")) { ?>
 		<?=$navLinks?>
 	<?php } ?>
-
-	<hr />
 
 	<?php if($this->siteParam("comic-use-adsense")) { ?>
 		<div class="ad-container">
@@ -20,23 +26,26 @@
 		</div>
 	<?php } ?>
 
-	<hr />
+    <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
+        <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts') || true?>;</script>
+        <div class="transcript">
+            <div class="panel panel-default">
+                <div class="panel-heading" title="Click to show page transcript">Transcript</div>
+                <p class="panel-body"><?=$node->page->transcriptHtml?></p>
+            </div>
+        </div>
+    <?php } ?>
 
-	<h1 class="page-title">(<?=$node->pageNumber?>) <?=$node->page->title?></h1>
-
-	<p class="comic-text page-description">
-		<?php if(strlen($node->page->descriptionHtml) > 0) { ?>
-			<?=$node->page->descriptionHtml?>
-		<?php } else { ?>
-			<em>&lt;No page commentary.&gt;</em>
-		<?php } ?>
-	</p>
-
-	<?php if(strlen($node->page->transcriptHtml) > 0) { ?>
-		<script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts')?>;</script>
-		<div class="page-transcript">
-			<h2 class="transcript-title" title="Click to show page transcript">Page Transcript</h2>
-			<p class="comic-text page-transcript"><?=$node->page->transcriptHtml?></p>
-		</div>
-	<?php } ?>
+	<div class="commentary">
+        <div class="panel panel-default">
+            <div class="panel-heading">Commentary</div>
+            <div class="panel-body">
+                <?php if(strlen($node->page->descriptionHtml) > 0) { ?>
+                    <?=$node->page->descriptionHtml?>
+                <?php } else { ?>
+                    <em>&lt;No page commentary.&gt;</em>
+                <?php } ?>
+            </div>
+        </div>
+    </div>
 </div>

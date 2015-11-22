@@ -7,19 +7,7 @@
 		</h2>
 		
 		<?php if(count($arc->getSubArcs()) == 0) { ?>
-			<ul class="arc-pages">
-				<?php foreach($arc->getPageNodes() as $node) { ?>
-					<li>
-						<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
-							<?php if($this->siteParam("comic-show-archive-page-names")) { ?>
-								(<?=$node->pageNumber?>) <?=$node->page->displayName()?>
-							<?php } else { ?>
-								<?=$node->pageNumber?>
-							<?php } ?>
-						</a>
-					</li>
-				<?php } ?>
-			</ul>
+            <?=$this->render('atp-comic/shared/archive-page-links.phtml', array('arc' => $arc))?>
 		<?php } else { ?>
 			<ul class="sub-arcs">
 				<?php foreach($arc->getSubArcs() as $index => $subArc) { ?>
@@ -34,19 +22,7 @@
 								</div>
 							<?php } ?>
 						</h3>
-						<ul class="arc-pages">
-							<?php foreach($subArc->getPageNodes() as $node) { ?>
-								<li>
-									<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
-										<?php if($this->siteParam("comic-show-archive-page-names")) { ?>
-											(<?=$node->pageNumber?>) <?=$node->page->displayName()?>
-										<?php } else { ?>
-											<?=$node->pageNumber?>
-										<?php } ?>
-									</a>
-								</li>
-							<?php } ?>
-						</ul>
+                        <?=$this->render('atp-comic/shared/archive-page-links.phtml', array('arc' => $subArc))?>
 					</li>
 				<?php } ?>
 			</ul>
