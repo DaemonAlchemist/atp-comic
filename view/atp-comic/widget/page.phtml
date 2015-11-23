@@ -1,5 +1,5 @@
 <?php $this->appendJs("/atp-comic/js/comic.js")?>
-<?php $this->appendCss("/atp-comic/css/comic.less")?>
+<?php $this->appendCss("/css/atp-comic/comic.less")?>
 
 <div class="comic-page-widget">
     <p class="page-name">
@@ -26,25 +26,29 @@
 		</div>
 	<?php } ?>
 
-    <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
-        <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts') || true?>;</script>
-        <div class="transcript">
-            <div class="panel panel-default">
-                <div class="panel-heading" title="Click to show page transcript">Transcript</div>
-                <p class="panel-body"><?=$node->page->transcriptHtml?></p>
+    <div class="comic-page-footer">
+        <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
+            <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts') || true?>;</script>
+            <div class="page-extra">
+                <div class="transcript">
+                    <h2>Transcript</h2>
+                    <div class="body">
+                        <?=$node->page->transcriptHtml?>
+                    </div>
+                </div>
             </div>
-        </div>
-    <?php } ?>
+        <?php } ?>
 
-	<div class="commentary">
-        <div class="panel panel-default">
-            <div class="panel-heading">Commentary</div>
-            <div class="panel-body">
-                <?php if(strlen($node->page->descriptionHtml) > 0) { ?>
-                    <?=$node->page->descriptionHtml?>
-                <?php } else { ?>
-                    <em>&lt;No page commentary.&gt;</em>
-                <?php } ?>
+        <div class="page-extra">
+            <div class="commentary">
+                <h2>Commentary</h2>
+                <div class="body">
+                    <?php if(strlen($node->page->descriptionHtml) > 0) { ?>
+                        <?=$node->page->descriptionHtml?>
+                    <?php } else { ?>
+                        <em>&lt;No page commentary.&gt;</em>
+                    <?php } ?>
+                </div>
             </div>
         </div>
     </div>
