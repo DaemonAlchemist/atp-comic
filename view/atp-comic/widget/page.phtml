@@ -27,18 +27,6 @@
 	<?php } ?>
 
     <div class="comic-page-footer">
-        <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
-            <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts') || true?>;</script>
-            <div class="page-extra">
-                <div class="transcript">
-                    <h2>Transcript</h2>
-                    <div class="body">
-                        <?=$node->page->transcriptHtml?>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
-
         <div class="page-extra">
             <div class="commentary">
                 <h2>Commentary</h2>
@@ -51,5 +39,17 @@
                 </div>
             </div>
         </div>
+
+        <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
+            <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts') || true?>;</script>
+            <div class="page-extra">
+                <div class="transcript">
+                    <h2>Transcript</h2>
+                    <div class="body">
+                        <?=$node->page->transcriptHtml?>
+                    </div>
+                </div>
+            </div>
+        <?php } ?>
     </div>
 </div>
