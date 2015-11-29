@@ -6,6 +6,7 @@ class IndexController extends \ATPCore\Controller\AbstractController
 {
 	public function init()
 	{
+        $this->cacheFor(24*60*60);
 	}
 
 	public function pageAction()
@@ -50,6 +51,8 @@ class IndexController extends \ATPCore\Controller\AbstractController
 	
 	public function bookmarkAction()
 	{
+        $this->noCache();
+
 		if(isset($this->remember->currentComicPage))
 		{
 			$nodeId = $this->remember->currentComicPage;
