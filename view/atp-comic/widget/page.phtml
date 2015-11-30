@@ -2,11 +2,6 @@
 <?php $this->appendCss("/css/atp-comic/comic.less")?>
 
 <div class="comic-page-widget">
-    <p class="page-name">
-        <em><a href="<?=$this->url('comic/archives', array('arc' => $node->arc->url))?>" title="<?=$node->arc->fullName()?>">
-                <?=$node->arc->name?>
-        </a></em>, page <?=$node->pageNumber?>
-    </p>
 
     <?php if($this->siteParam("comic-show-nav-links-top")) { ?>
 		<?=$navLinks?>
@@ -14,22 +9,21 @@
 
 	<img class="comic-img" src="<?=$this->basePath($node->page->filePath('image_file'))?>" />
 
-    <h1 class="page-title"><?=$node->page->title?></h1>
+    <h1 class="page-name">
+        Page <?=$node->pageNumber?>: <?=$node->page->title?><br/>
+        <em><a href="<?=$this->url('comic/archives', array('arc' => $node->arc->url))?>" title="<?=$node->arc->fullName()?>">
+                <?=$node->arc->name?>
+        </a></em>
+    </h1>
 
 	<?php if($this->siteParam("comic-show-nav-links-bottom")) { ?>
 		<?=$navLinks?>
 	<?php } ?>
 
-	<?php if($this->siteParam("comic-use-adsense")) { ?>
-		<div class="ad-container">
-			<div class="adsense adsense-comic-page"><?=$this->adsense("inline-ad")?></div>
-		</div>
-	<?php } ?>
-
     <div class="comic-page-footer">
         <div class="page-extra">
             <div class="commentary">
-                <h2>Commentary</h2>
+                <h2><i></i>Commentary</h2>
                 <div class="body">
                     <?php if(strlen($node->page->descriptionHtml) > 0) { ?>
                         <?=$node->page->descriptionHtml?>
@@ -52,4 +46,10 @@
             </div>
         <?php } ?>
     </div>
+
+    <?php if($this->siteParam("comic-use-adsense")) { ?>
+        <div class="ad-container">
+            <div class="adsense adsense-comic-page"><?=$this->adsense("inline-ad")?></div>
+        </div>
+    <?php } ?>
 </div>
