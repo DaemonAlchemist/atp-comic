@@ -80,11 +80,14 @@ class Arc extends \ATP\ActiveRecord
 		return $this->_pageNodes;
 	}
 	
-	public function getSubArcs()
+	public function getSubArcs($filterEmpty = true)
 	{
-		return array_filter((array)$this->getAtpcomicArcsByParentArc(), function($arc){
-			return count($arc->getPageNodes()) > 0;
-		});
+        $arcs = (array)$this->getAtpcomicArcsByParentArc();
+		return $filterEmpty
+            ?array_filter($arcs, function($arc){
+			    return count($arc->getPageNodes()) > 0;
+		    })
+            : $arcs;
 	}
 }
 Arc::init();

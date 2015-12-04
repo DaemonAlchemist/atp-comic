@@ -15,7 +15,6 @@ class Page extends \ATP\ActiveRecord
 	{
 		if(isset($this->arcAssignments))
 		{
-		
 			$newArcIds = $this->arcAssignments;
 			$nodes = (array)$this->getNodes();
 			
@@ -32,7 +31,7 @@ class Page extends \ATP\ActiveRecord
 				}
 				return true;
 			});
-			
+
 			//Delete unneeded nodes
 			foreach($nodesToDelete as $node)
 			{

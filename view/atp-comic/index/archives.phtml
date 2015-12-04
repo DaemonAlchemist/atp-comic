@@ -13,12 +13,14 @@
 				<?php foreach($arc->getSubArcs() as $index => $subArc) { ?>
 					<li>
 						<h3>
-							<?=$arc->subArcName?> <?=$index + 1?> - <?=$subArc->name?>
+							<div class="subarc-name">
+                                <?=$arc->subArcName?> <?=$index + 1?> - <?=$subArc->name?>
+                            </div>
 							<?php if(count($subArc->getSubArcs()) > 1) { ?>
 								<div class="browse-by-subarc">
-									(<a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">
+									<a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">
 										browse this <?=strtolower($arc->subArcName)?> by <?=strtolower($subArc->subArcName)?>
-									</a>)
+									</a>
 								</div>
 							<?php } ?>
 						</h3>

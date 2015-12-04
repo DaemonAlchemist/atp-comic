@@ -1,79 +1,79 @@
 #object-story_arcs-tab {
- padding: 0;
+  padding: 0;
 }
 #object-story_arcs-tab .tab-section {
- width: 50%;
- float: left;
- padding: 8px;
+  width: 50%;
+  float: left;
+  padding: 8px;
 }
 #object-story_arcs-tab .tab-full-section {
- clear: both;
- width: 100%;
- padding: 8px;
+  clear: both;
+  width: 100%;
+  padding: 8px;
 }
 #object-story_arcs-tab ul.arc-hierarchy span.arc-selector {
- display: block;
- padding: 8px;
+  display: block;
+  padding: 8px;
 }
 #object-story_arcs-tab ul.arc-hierarchy span.arc-selector:hover {
- background: #cccccc;
+  background: #cccccc;
 }
 #object-story_arcs-tab ul.arc-hierarchy span.arc-selector.arc-selected:before {
- position: absolute;
- content: '\2714';
+  position: absolute;
+  content: '\2714';
 }
 #object-story_arcs-tab ul.arc-hierarchy span.arc-selector span.arc-name {
- margin-left: 20px;
+  margin-left: 20px;
 }
 #object-story_arcs-tab ul.arc-hierarchy span.arc-selector input {
- display: none;
+  display: none;
 }
 #object-story_arcs-tab ul.arc-hierarchy ul {
- padding: 8px 8px 8px 24px;
+  padding: 8px 8px 8px 24px;
 }
 #object-story_arcs-tab #current-arcs p {
- padding: 8px;
+  padding: 8px;
 }
 #object-story_arcs-tab #current-arcs p.arc-removed {
- text-decoration: line-through;
+  text-decoration: line-through;
 }
 #object-move_page-tab div.move-page {
- height: 100px;
+  height: 100px;
 }
 #object-move_page-tab div.move-page table {
- width: 75%;
- margin: auto;
+  width: 75%;
+  margin: auto;
 }
 #object-move_page-tab div.move-page table td,
 #object-move_page-tab div.move-page table th {
- text-align: center;
- width: 33%;
- padding: 8px;
+  text-align: center;
+  width: 33%;
+  padding: 8px;
 }
 #object-move_page-tab div.move-page table thead tr th {
- border-bottom: solid 4px #aaaaaa;
- font-weight: bold;
+  border-bottom: solid 4px #aaaaaa;
+  font-weight: bold;
 }
 #object-move_page-tab div.move-page table tbody td div > span {
- display: block;
- background: #cccccc;
- padding: 8px;
- text-align: center;
- border: solid 2px #aaaaaa;
+  display: block;
+  background: #cccccc;
+  padding: 8px;
+  text-align: center;
+  border: solid 2px #aaaaaa;
 }
 #object-move_page-tab div.move-page table tbody td div.node-current span.move-prev {
- font-weight: bold;
- float: left;
- background: #eeeeee;
- display: block;
- padding: 8px;
- margin: -8px 0 0 -8px;
+  font-weight: bold;
+  float: left;
+  background: #eeeeee;
+  display: block;
+  padding: 8px;
+  margin: -8px 0 0 -8px;
 }
 #object-move_page-tab div.move-page table tbody td div.node-current span.move-next {
- font-weight: bold;
- float: right;
- background: #eeeeee;
- display: block;
- padding: 8px;
- margin: -8px -8px 0 0;
+  font-weight: bold;
+  float: right;
+  background: #eeeeee;
+  display: block;
+  padding: 8px;
+  margin: -8px -8px 0 0;
 }
