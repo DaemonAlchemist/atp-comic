@@ -1,7 +1,9 @@
 <a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
+    <img
+        title="<?=$node->arc->displayName()?>&#013;Page <?=$node->pageNumber?> - <?=$node->page->displayName()?>"
+        src="<?=$this->basePath($node->page->filePath('thumbnail_file'))?>"
+    />
     <?php if($this->siteParam("comic-show-archive-page-names")) { ?>
-        (<?=$node->pageNumber?>) <?=$node->page->displayName()?>
-    <?php } else { ?>
-        <?=$node->pageNumber?>
+        <br/><span>Page <?=$node->pageNumber?><br/><em><?=$node->page->displayName()?></em></span>
     <?php } ?>
 </a>

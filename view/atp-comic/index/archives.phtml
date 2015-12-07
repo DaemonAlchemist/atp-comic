@@ -1,11 +1,36 @@
 <?php $this->appendCss("/css/atp-comic/comic.less")?>
 
+<h1>
+    Archives
+    <?php if(count($arcs) == 1) {?>
+        - <?=$arcs[0]->displayName()?>
+    <?php } ?>
+</h1>
+
 <div id="archives">
 	<?php foreach($arcs as $arc) { ?>
-		<h2>
-			<?=$arc->displayName()?> - Archives
-		</h2>
-		
+        <?php if($this->siteParam("comic-show-archive-breadcrumbs")) {?>
+            <ol class="breadcrumb">
+                <li><a href="<?=$this->url("comic/archives")?>">Archives</a></li>
+                <?php if(count($arc->parentArcs()) > 0) {?>
+                    <?php foreach($arc->parentArcs() as $parentArc) { ?>
+                        <li>
+                            <a href="<?=$this->url("comic/archives", array('arc' => $parentArc->url))?>">
+                                <?=$parentArc->displayName()?>
+                            </a>
+                        </li>
+                    <?php } ?>
+                <?php } ?>
+                <li>
+                    <a class="active" href="<?=$this->url("comic/archives", array('arc' => $arc->url))?>">
+                        <?=$arc->displayName()?>
+                    </a>
+                </li>
+            </ol>
+        <?php } ?>
+
+
+
 		<?php if(count($arc->getSubArcs()) == 0) { ?>
             <?=$this->render('atp-comic/shared/archive-page-links.phtml', array('arc' => $arc))?>
 		<?php } else { ?>
@@ -19,7 +44,7 @@
 							<?php if(count($subArc->getSubArcs()) > 1) { ?>
 								<div class="browse-by-subarc">
 									<a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">
-										browse this <?=strtolower($arc->subArcName)?> by <?=strtolower($subArc->subArcName)?>
+										browse by <?=strtolower($subArc->subArcName)?>
 									</a>
 								</div>
 							<?php } ?>
@@ -32,6 +57,4 @@
 	<?php } ?>
 	
 	<div style="clear: both;"></div>
-	
-	{{block:archives-blurb}}
 </div>

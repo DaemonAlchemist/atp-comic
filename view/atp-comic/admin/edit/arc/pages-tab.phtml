@@ -1,11 +1,15 @@
 <h3 class="section-header">Pages</h3>
 
-<div class="section">
+<div class="section admin-arc-page-tab">
 	<ul>
 		<?php foreach($object->getAtpcomicNodesByArc() as $node) { ?>
-			<li>
+			<li style="float: left; padding: 15px; text-align: center;">
 				<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
-					(<?=$node->pageNumber?>) - <?=$node->page->displayName()?>
+                    <img
+                        title="(<?=$node->pageNumber?>) <?=$node->page->displayName()?>"
+                        src="<?=$this->basePath($node->page->filePath('thumbnail_file'))?>"
+                        /><br/>
+                    (<?=$node->pageNumber?>) - <?=$node->page->displayName()?>
 				</a>
 			</li>
 		<?php } ?>

@@ -11,7 +11,7 @@ return array(
 				'defaultOrder' => 'id DESC',
 				'tabs' => array(
 					'Details' => array('title', 'url', 'post_date', 'is_active'),
-					'Comic' => array('image_file', 'transcript_html'),
+					'Comic' => array('image_file', 'thumbnail_file', 'transcript_html'),
 					'Commentary' => array('description_html'),
 				),
 				'customTabs' => array(
@@ -26,7 +26,7 @@ return array(
 				'displayColumns' => array('Url'),
 				'defaultOrder' => 'name ASC',
 				'tabs' => array(
-					'Details' => array('name', 'url'),
+					'Details' => array('name', 'url', 'banner_file', 'thumbnail_file', 'summary_html'),
 					'Related Arcs' => array('parent_arc_id', 'sub_arc_name', 'prev_arc_id', 'next_arc_id'),
 				),
 				'customTabs' => array(
@@ -90,6 +90,13 @@ return array(
 				'type' => 'Boolean',
 				'default' => true,
 			),
+            'comic-show-archive-breadcrumbs' => array(
+                'displayName' => 'Show Archive Breadcrumbs',
+                'group' => 'Comic',
+                'subGroup' => 'Archives',
+                'type' => 'Boolean',
+                'default' => true,
+            ),
 			'comic-show-nav-links-top' => array(
 				'displayName' => 'Show Top Nav Links',
 				'group' => 'Comic',

@@ -17,6 +17,13 @@ class Arc extends \ATP\ActiveRecord
 	{
 		return $this->parentArc->id ? $this->displayName() . " / " . $this->parentArc->fullName() : $this->displayName();
 	}
+
+    public function parentArcs()
+    {
+        return $this->parentArc->id
+            ? array_merge($this->parentArc->parentArcs(), [$this->parentArc])
+            : [];
+    }
 	
 	public function firstNode()
 	{
