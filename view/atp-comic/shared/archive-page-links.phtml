@@ -1,7 +1,10 @@
-<ul class="arc-pages">
-    <?php foreach($arc->getPageNodes() as $node) { ?>
-        <li>
-            <?=$this->render('atp-comic/shared/archive-page-link.phtml', array('node' => $node))?>
-        </li>
-    <?php } ?>
-</ul>
+<div class="arc-pages">
+    <h4>Pages</h4>
+    <ul class="arc-pages">
+        <?php foreach($arc->getPageNodes() as $node) { ?>
+            <li>
+                <?=$this->render('atp-comic/shared/archive-page-link.phtml', array('node' => $node))?>
+            </li>
+        <?php } ?>
+    </ul>
+</div>

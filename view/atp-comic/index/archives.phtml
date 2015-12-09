@@ -1,14 +1,16 @@
 <?php $this->appendCss("/css/atp-comic/comic.less")?>
 
 <h1>
-    Archives
     <?php if(count($arcs) == 1) {?>
-        - <?=$arcs[0]->displayName()?>
+        <?=$arcs[0]->displayName()?>
     <?php } ?>
+    Archives
 </h1>
 
 <div id="archives">
 	<?php foreach($arcs as $arc) { ?>
+        <img class="arc-banner" src="<?=$this->basePath($arc->filePath('banner_file'))?>" title="<?=$arc->displayName()?>"/>
+        <p class="arc-summary"><?=$arc->summaryHtml?></p>
         <?php if($this->siteParam("comic-show-archive-breadcrumbs")) {?>
             <ol class="breadcrumb">
                 <li><a href="<?=$this->url("comic/archives")?>">Archives</a></li>
@@ -37,18 +39,20 @@
 			<ul class="sub-arcs">
 				<?php foreach($arc->getSubArcs() as $index => $subArc) { ?>
 					<li>
-						<h3>
-							<div class="subarc-name">
+                        <img class="subarc-thumbnail" src="<?=$this->basePath($subArc->filePath('thumbnail_file'))?>" title="<?=$subArc->displayName()?>"/>
+                        <div class="subarc-info">
+                            <h3>
                                 <?=$arc->subArcName?> <?=$index + 1?> - <?=$subArc->name?>
-                            </div>
-							<?php if(count($subArc->getSubArcs()) > 1) { ?>
-								<div class="browse-by-subarc">
-									<a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">
-										browse by <?=strtolower($subArc->subArcName)?>
-									</a>
-								</div>
-							<?php } ?>
-						</h3>
+                            </h3>
+                            <p><?=$subArc->summaryHtml?></p>
+                            <?php if(count($subArc->getSubArcs()) > 1) { ?>
+                                <div class="browse-by-subarc">
+                                    <a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">
+                                        browse by <?=strtolower($subArc->subArcName)?>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                        </div>
                         <?=$this->render('atp-comic/shared/archive-page-links.phtml', array('arc' => $subArc))?>
 					</li>
 				<?php } ?>
