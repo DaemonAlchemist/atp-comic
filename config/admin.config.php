@@ -27,7 +27,7 @@ return array(
 				'defaultOrder' => 'name ASC',
 				'tabs' => array(
 					'Details' => array('name', 'url', 'banner_file', 'thumbnail_file', 'summary_html'),
-					'Related Arcs' => array('parent_arc_id', 'sub_arc_name', 'prev_arc_id', 'next_arc_id'),
+					'Related Arcs' => array('parent_arc_id', 'sub_arc_name', 'prev_arc_id', 'next_arc_id', 'sort_order'),
 				),
 				'customTabs' => array(
 					'Pages' => 'atp-comic/admin/edit/arc/pages-tab.phtml',

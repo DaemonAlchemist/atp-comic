@@ -75,6 +75,7 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		$arc = new \ATPComic\Model\Arc();
 		$arcs = $arc->loadMultiple(array(
 			'where' => !empty($arcUrl) ? "url = ?" : "parent_arc_id is null OR parent_arc_id = 0",
+            'orderBy' => 'sort_order ASC',
 			'data' =>!empty($arcUrl) ? array($arcUrl) : array()
 		));
 		
