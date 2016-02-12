@@ -90,6 +90,9 @@ class Arc extends \ATP\ActiveRecord
 	public function getSubArcs($filterEmpty = true)
 	{
         $arcs = (array)$this->getAtpcomicArcsByParentArc();
+        usort($arcs, function($a, $b){
+            return $a->sortOrder - $b->sortOrder;
+        });
 		return $filterEmpty
             ?array_filter($arcs, function($arc){
 			    return count($arc->getPageNodes()) > 0;
