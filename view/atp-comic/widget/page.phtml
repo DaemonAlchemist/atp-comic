@@ -22,16 +22,12 @@
 
     <div class="comic-page-footer">
         <div class="page-extra">
-            <div class="commentary">
-                <h2><i></i>Commentary</h2>
-                <div class="body">
-                    <?php if(strlen($node->page->descriptionHtml) > 0) { ?>
-                        <?=$node->page->descriptionHtml?>
-                    <?php } else { ?>
-                        <em>&lt;No page commentary.&gt;</em>
-                    <?php } ?>
-                </div>
-            </div>
+			<?php foreach($node->page->commentaries() as $commentary) { ?>
+				<div class="commentary">
+					<h2><i class="avatar-<?=$commentary->user->username?>"></i><?=$commentary->title?></h2>
+					<div class="body"><?=$commentary->commentaryHtml?></div>
+				</div>
+			<?php } ?>
         </div>
 
         <?php if(strlen($node->page->transcriptHtml) > 0) { ?>

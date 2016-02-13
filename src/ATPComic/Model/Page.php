@@ -3,6 +3,7 @@
 namespace ATPComic\Model;
 
 require_once("Arc.php");
+require_once("Commentary.php");
 
 class Page extends \ATP\ActiveRecord
 {
@@ -83,6 +84,19 @@ class Page extends \ATP\ActiveRecord
 		}
 		
 		return false;
+	}
+	
+	public function commentaries()
+	{
+		$commentaries = $this->getAtpcomicCommentariesByPage()->toArray();
+
+		usort(
+			$commentaries,
+			function($a, $b) {
+				return $a->sortOrder - $b->sortOrder;
+			}
+		);
+		return $commentaries;
 	}
 }
 Page::init();

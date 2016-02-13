@@ -50,6 +50,13 @@ return array(
 				'displayColumns' => array(),
 				'defaultOrder' => 'arc_id ASC',
 			),
+			'atpcomic_commentary' => array(
+				'displayName' => 'Commentary',
+				'class' => 'ATPComic\Model\Commentary',
+				'category' => 'Comic',
+				'displayColumns' => array('Page', 'User'),
+				'defaultOrder' => 'page_id DESC',
+			),
 		),
 		'parameters' => array(
 			'comic-default-arc' => array(
