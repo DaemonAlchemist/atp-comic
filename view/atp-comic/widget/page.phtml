@@ -31,10 +31,17 @@
         </div>
 
         <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
-            <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts') || true?>;</script>
+            <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts')?>;</script>
             <div class="page-extra">
+                <h2 class="showTranscript" style="display: none;">
+                    View Transcript
+                    <i class="glyphicon glyphicon-subtitles"></i>
+                </h2>
                 <div class="transcript">
-                    <h2>Transcript</h2>
+                    <h2>
+                        Transcript
+                        <i class="glyphicon glyphicon-subtitles"></i>
+                    </h2>
                     <div class="body">
                         <?=$node->page->transcriptHtml?>
                     </div>

@@ -13,9 +13,11 @@ $(function(){
 	
 	//Toggle page transcripts
 	if(!showTranscripts) {
-		$("div.page-transcript p").hide();
+		$("div.transcript").hide();
+        $("h2.showTranscript").show();
 	}
-	$("div.page-transcript h2").click(function(){
-		$("div.page-transcript p").toggle();
+	$("h2.showTranscript").click(function(){
+        $("h2.showTranscript").hide();
+		$("div.transcript").toggle();
 	});
 });
