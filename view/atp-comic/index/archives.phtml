@@ -1,14 +1,14 @@
 <?php $this->appendCss("/css/atp-comic/comic.less")?>
 
-<h1>
-    <?php if(count($arcs) == 1) {?>
-        <?=$arcs[0]->displayName()?>
-    <?php } ?>
-    Archives
-</h1>
-
 <div id="archives">
-	<?php foreach($arcs as $arc) { ?>
+    <h1>
+        <?php if(count($arcs) == 1) {?>
+            <?=$arcs[0]->displayName()?>
+        <?php } ?>
+        Archives
+    </h1>
+
+    <?php foreach($arcs as $arc) { ?>
         <img class="arc-banner" src="<?=$this->basePath($arc->filePath('banner_file'))?>" title="<?=$arc->displayName()?>"/>
         <p class="arc-summary"><?=$arc->summaryHtml?></p>
         <?php if($this->siteParam("comic-show-archive-breadcrumbs")) {?>
