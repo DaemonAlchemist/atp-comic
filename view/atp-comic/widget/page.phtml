@@ -15,6 +15,18 @@
                 <?=$node->arc->name?>
         </a></em>
     </h1>
+    <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
+        <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts')?>;</script>
+        <div id="transcript-container">
+            <h2 id="transcriptToggle">
+                <span>Transcript</span>
+                <i class="glyphicon glyphicon-subtitles"></i>
+            </h2>
+            <div id="transcript">
+                <?=$node->page->transcriptHtml?>
+            </div>
+        </div>
+    <?php } ?>
 
 	<?php if($this->siteParam("comic-show-nav-links-bottom")) { ?>
 		<?=$navLinks?>
@@ -29,25 +41,6 @@
 				</div>
 			<?php } ?>
         </div>
-
-        <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
-            <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts')?>;</script>
-            <div class="page-extra">
-                <h2 class="showTranscript" style="display: none;">
-                    View Transcript
-                    <i class="glyphicon glyphicon-subtitles"></i>
-                </h2>
-                <div class="transcript">
-                    <h2>
-                        Transcript
-                        <i class="glyphicon glyphicon-subtitles"></i>
-                    </h2>
-                    <div class="body">
-                        <?=$node->page->transcriptHtml?>
-                    </div>
-                </div>
-            </div>
-        <?php } ?>
     </div>
 
     <?php if($this->siteParam("comic-use-adsense")) { ?>

@@ -12,12 +12,17 @@ $(function(){
 	});
 	
 	//Toggle page transcripts
+    var transcriptVisible = true;
+    var title = $("h2#transcriptToggle span");
+    var text = $("div#transcript");
 	if(!showTranscripts) {
-		$("div.transcript").hide();
-        $("h2.showTranscript").show();
+        transcriptVisible = false;
+		text.hide();
+        title.html('Show Transcript');
 	}
-	$("h2.showTranscript").click(function(){
-        $("h2.showTranscript").hide();
-		$("div.transcript").toggle();
+	$("h2#transcriptToggle").click(function(){
+        text.toggle();
+        transcriptVisible = !transcriptVisible;
+        title.html(transcriptVisible ? "Hide Transcript" : "Show Transcript");
 	});
 });
