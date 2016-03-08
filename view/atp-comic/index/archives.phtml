@@ -3,13 +3,13 @@
 <div id="archives">
     <h1>
         <?php if(count($arcs) == 1) {?>
-            <?=$arcs[0]->displayName()?>
+            <?=$arcs[0]->name?>
         <?php } ?>
         Archives
     </h1>
 
     <?php foreach($arcs as $arc) { ?>
-        <img class="arc-banner" src="<?=$this->basePath($arc->filePath('banner_file'))?>" title="<?=$arc->displayName()?>"/>
+        <img class="arc-banner" src="<?=$this->basePath($arc->filePath('banner_file'))?>" title="<?=$arc->name?>"/>
         <p class="arc-summary"><?=$arc->summaryHtml?></p>
         <?php if($this->siteParam("comic-show-archive-breadcrumbs")) {?>
             <ol class="breadcrumb">
@@ -18,14 +18,14 @@
                     <?php foreach($arc->parentArcs() as $parentArc) { ?>
                         <li>
                             <a href="<?=$this->url("comic/archives", array('arc' => $parentArc->url))?>">
-                                <?=$parentArc->displayName()?>
+                                <?=$parentArc->name?>
                             </a>
                         </li>
                     <?php } ?>
                 <?php } ?>
                 <li>
                     <a class="active" href="<?=$this->url("comic/archives", array('arc' => $arc->url))?>">
-                        <?=$arc->displayName()?>
+                        <?=$arc->name?>
                     </a>
                 </li>
             </ol>
@@ -39,7 +39,7 @@
 			<ul class="sub-arcs">
 				<?php foreach($arc->getSubArcs() as $index => $subArc) { ?>
 					<li>
-                        <img class="subarc-thumbnail" src="<?=$this->basePath($subArc->filePath('thumbnail_file'))?>" title="<?=$subArc->displayName()?>"/>
+                        <img class="subarc-thumbnail" src="<?=$this->basePath($subArc->filePath('thumbnail_file'))?>" title="<?=$subArc->name?>"/>
                         <div class="subarc-info">
                             <h3>
                                 <?=$arc->subArcName?> <?=$index + 1?> - <?=$subArc->name?>

@@ -10,12 +10,12 @@ class Arc extends \ATP\ActiveRecord
 
 	public function displayName()
 	{
-		return $this->name;
+		return $this->fullName();
 	}
 	
 	public function fullName()
 	{
-		return $this->parentArc->id ? $this->displayName() . " / " . $this->parentArc->fullName() : $this->displayName();
+		return $this->parentArc->id ? $this->parentArc->fullName() . ' - ' . $this->name : $this->name;
 	}
 
     public function parentArcs()
