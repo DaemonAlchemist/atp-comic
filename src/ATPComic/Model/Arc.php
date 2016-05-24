@@ -25,11 +25,11 @@ class Arc extends \ATP\ActiveRecord
             : [];
     }
 	
-	public function firstNode()
+	public function firstNode($activeOnly = true)
 	{
 		$node = new \ATPComic\Model\Node();
 		$nodes = $node->loadMultiple(array(
-			'where' => "arc_id = ? and is_active=1",
+			'where' => $activeOnly ? "arc_id = ? and is_active=1" : "arc_id = ?",
 			'orderBy' => 'page_number ASC',
 			'limit' => 1,
 			'data' => array($this->id)
@@ -38,11 +38,11 @@ class Arc extends \ATP\ActiveRecord
 		return count($nodes) > 0 ? $nodes[0] : null;
 	}
 	
-	public function lastNode()
+	public function lastNode($activeOnly = true)
 	{
 		$node = new \ATPComic\Model\Node();
 		$nodes = $node->loadMultiple(array(
-			'where' => "arc_id = ? and is_active=1",
+            'where' => $activeOnly ? "arc_id = ? and is_active=1" : "arc_id = ?",
 			'orderBy' => 'page_number DESC',
 			'limit' => 1,
 			'data' => array($this->id)

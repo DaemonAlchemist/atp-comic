@@ -35,12 +35,12 @@ class APIController extends \ATPCore\Controller\AbstractController
 		if($direction == 'prev' && !$node->isFirst())
 		{
 			//Get prev node
-			$prevNode = $node->prevNode();
+			$prevNode = $node->prevNode(false);
 			
 			//Get the new previous page name
 			if(!$prevNode->isFirst())
 			{
-				$prevPageName = $prevNode->prevNode()->page->title;
+				$prevPageName = $prevNode->prevNode(false)->page->title;
 			}
 			
 			//Update page numbers
@@ -56,15 +56,15 @@ class APIController extends \ATPCore\Controller\AbstractController
 			
 			$result = true;
 		}
-		else if($direction == 'next' && !$node->isLast())
+		else if($direction == 'next' && !$node->isLast(false))
 		{
 			//Get prev node
-			$nextNode = $node->nextNode();
+			$nextNode = $node->nextNode(false);
 			
 			//Get the new next page name
-			if(!$nextNode->isLast())
+			if(!$nextNode->isLast(false))
 			{
-				$nextPageName = $nextNode->nextNode()->page->title;
+				$nextPageName = $nextNode->nextNode(false)->page->title;
 			}
 			
 			//Update page numbers

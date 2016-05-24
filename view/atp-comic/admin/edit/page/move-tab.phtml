@@ -19,8 +19,8 @@
 							<td class="node node-after">
 								<div class="node-before">
 									<span>
-										<?php if($node->prevNode()) { ?>
-											<?=$node->prevNode()->page->title?>
+										<?php if($node->prevNode(false)) { ?>
+											<?=$node->prevNode(false)->page->title?>
 										<?php } else { ?>
 											&nbsp;
 										<?php } ?>
@@ -39,8 +39,8 @@
 							<td class="node node-after">
 								<div class="node-after">
 									<span>
-										<?php if($node->nextNode()) { ?>
-											<?=$node->nextNode()->page->title?>
+										<?php if($node->nextNode(false)) { ?>
+											<?=$node->nextNode(false)->page->title?>
 										<?php } else { ?>
 											&nbsp;
 										<?php } ?>

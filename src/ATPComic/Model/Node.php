@@ -41,12 +41,12 @@ class Node extends \ATP\ActiveRecord
 		);		
 	}
 
-	public function prevNode()
+	public function prevNode($activeOnly = true)
 	{
 		if(is_null($this->_prevNode))
 		{
 			$options = array(
-				'where' => 'arc_id = ? AND page_number < ? AND is_active = 1',
+				'where' => $activeOnly ? 'arc_id = ? AND page_number < ? AND is_active = 1': 'arc_id = ? AND page_number < ?',
 				'orderBy' => 'page_number DESC',
 				'limit' => 1,
 				'data' => array($this->arcId, $this->pageNumber),
@@ -60,12 +60,12 @@ class Node extends \ATP\ActiveRecord
 		
 	}
 	
-	public function nextNode()
+	public function nextNode($activeOnly = true)
 	{
 		if(is_null($this->_nextNode))
 		{
 			$options = array(
-				'where' => 'arc_id = ? AND page_number > ? AND is_active = 1',
+				'where' => $activeOnly ? 'arc_id = ? AND page_number > ? AND is_active = 1' : 'arc_id = ? AND page_number > ?',
 				'orderBy' => 'page_number ASC',
 				'limit' => 1,
 				'data' => array($this->arcId, $this->pageNumber),
@@ -79,9 +79,9 @@ class Node extends \ATP\ActiveRecord
 		
 	}
 
-	public function isLast()
+	public function isLast($activeOnly = true)
 	{
-		return is_null($this->nextNode());
+		return is_null($this->nextNode($activeOnly));
 	}
 	
 	public function isFirst()

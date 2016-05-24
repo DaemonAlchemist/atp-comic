@@ -51,7 +51,7 @@ class Page extends \ATP\ActiveRecord
 				//Get the last node in the arc
 				$arc = new \ATPComic\Model\Arc();
 				$arc->loadById($arcId);
-				$lastNode = $arc->lastNode();
+				$lastNode = $arc->lastNode(false);
 			
 				$newNode = new \ATPComic\Model\Node();
 				$newNode->arc = $arc;
