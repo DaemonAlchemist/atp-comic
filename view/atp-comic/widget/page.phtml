@@ -14,6 +14,7 @@
         <em><a href="<?=$this->url('comic/archives', array('arc' => $node->arc->url))?>" title="<?=$node->arc->fullName()?>">
                 <?=$node->arc->name?>
         </a></em>
+        <?=$this->facebookLike("comic/{$node->arc->url}/{$node->pageNumber}/{$node->page->url}")?>
     </h1>
     <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
         <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts')?>;</script>
