@@ -44,6 +44,7 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		//Create the page widget
 		$comicPage = new \ATPComic\View\Widget\Page();
 		$comicPage->node = $node;
+        $comicPage->showComments = true;
 		$view->addChild($comicPage, 'comicPage');		
 		
 		return $view;
