@@ -70,15 +70,18 @@ class Arc extends \ATP\ActiveRecord
 		return $arc->loadMultiple($options);
 	}
 	
-	public function getPageNodes()
+	public function getPageNodes($dir = "ASC", $limit = null)
 	{
 		if(is_null($this->_pageNodes))
 		{		
 			$options = array(
 				'where' => 'arc_id = ? and is_active=1',
-				'orderBy' => 'page_number ASC',
+				'orderBy' => "page_number $dir",
 				'data' => array($this->id),
 			);
+            if($limit) {
+                $options['limit'] = $limit;
+            }
 			
 			$node = new \ATPComic\Model\Node();
 			$this->_pageNodes = $node->loadMultiple($options);

@@ -45,6 +45,16 @@ return array(
 							),
 						),
 					),
+                    'feed' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/rss[/:arc]',
+                            'defaults' => array(
+                                'controller'    => 'atp-comic-index',
+                                'action'		=> 'feed',
+                            ),
+                        ),
+                    ),
 					'api' => array(
 						'type' => 'Segment',
 						'options' => array(

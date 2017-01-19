@@ -84,4 +84,25 @@ class IndexController extends \ATPCore\Controller\AbstractController
 			'arcs' => $arcs
 		));
 	}
+
+	public function feedAction()
+    {
+        $this->init();
+
+        $arcUrl = $this->params('arc');
+
+        $arc = new \ATPComic\Model\Arc();
+        $arc->loadByUrl($arcUrl);
+
+        $nodes = $arc->getPageNodes('DESC', 10);
+
+        $view = new \Zend\View\Model\ViewModel(array(
+            'arc' => $arc,
+            'nodes' => $nodes
+        ));
+
+        $view->setTerminal(true);
+
+        return $view;
+    }
 }
