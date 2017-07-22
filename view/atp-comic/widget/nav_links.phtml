@@ -2,11 +2,13 @@
     <ul class="comic-nav-links">
         <?php if(!$node->isFirst()) { ?>
             <li class="first-page-link">
+                <?=$this->render('atp-comic/shared/page-prefetch.phtml', array('node' => $node))?>
                 <a href="<?=$this->url('comic/page', $node->arc->firstNode()->getRoutingData())?>">
                     <i></i>
                 </a>
             </li>
             <li class="prev-page-link">
+                <?=$this->render('atp-comic/shared/page-prefetch.phtml', array('node' => $node->prevNode()))?>
                 <a href="<?=$this->url('comic/page', $node->prevNode()->getRoutingData())?>">
                     <i></i>
                 </a>
@@ -14,6 +16,7 @@
         <?php } else { ?>
             <li class="arc-link prev-arc-link">
                 <?php if($node->hasPrevArc()) { ?>
+                    <?=$this->render('atp-comic/shared/page-prefetch.phtml', array('node' => $node->arc->prevArc->lastNode()))?>
                     <a href="<?=$this->url('comic/page', $node->arc->prevArc->lastNode()->getRoutingData())?>" data-toggle="tooltip" title="<?=$node->arc->prevArc->displayName()?>">
                         <i></i>
                     </a>
@@ -28,11 +31,13 @@
         </li>
         <?php if(!$node->isLast()) { ?>
             <li class="next-page-link">
+                <?=$this->render('atp-comic/shared/page-prefetch.phtml', array('node' => $node->nextNode()))?>
                 <a href="<?=$this->url('comic/page', $node->nextNode()->getRoutingData())?>">
                     <i></i>
                 </a>
             </li>
             <li class="last-page-link">
+                <?=$this->render('atp-comic/shared/page-prefetch.phtml', array('node' => $node->arc->lastNode()))?>
                 <a href="<?=$this->url('comic/page', $node->arc->lastNode()->getRoutingData())?>">
                     <i></i>
                 </a>
@@ -40,6 +45,7 @@
         <?php } else { ?>
             <li class="arc-link next-arc-link">
                 <?php if($node->hasNextArc()) { ?>
+                    <?=$this->render('atp-comic/shared/page-prefetch.phtml', array('node' => $node->arc->nextArc->firstNode()))?>
                     <a href="<?=$this->url('comic/page', $node->arc->nextArc->firstNode()->getRoutingData())?>" data-toggle="tooltip" title="<?=$node->arc->nextArc->displayName()?>">
                         <i></i>
                     </a>

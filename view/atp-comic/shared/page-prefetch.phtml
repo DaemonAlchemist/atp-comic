@@ -1,0 +1,8 @@
+<?php $this->headLink([
+    'rel' => 'prefetch',
+    'href' => $this->url('comic/page', $node->getRoutingData())
+])?>
+<?php $this->headLink([
+    'rel' => 'prefetch',
+    'href' => $this->basePath($node->page->filePath('image_file'))
+])?>
