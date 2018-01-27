@@ -14,6 +14,7 @@
         }
     },
     "require": {
-		"daemonalchemist/atp-core": "dev-master"
+		"daemonalchemist/atp-core": "dev-master",
+        "nategood/httpful": "*"
     }
 }
