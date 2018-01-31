@@ -1,9 +1,9 @@
-<a href="<?=$this->url("comic/page", $node->getRoutingData())?>">
+<a href="<?=$this->url("comic/page", ['pageUrl' => $page->url])?>">
     <img
-        title="<?=$node->arc->displayName()?>&#013;Page <?=$node->pageNumber?> - <?=$node->page->displayName()?>"
-        src="<?=$this->basePath($node->page->filePath('thumbnail_file'))?>"
+        title="<?=$page->name?>"
+        src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$page->image->fileName?> - 512x512.<?=$page->image->fileExtension?>"
     />
     <?php if($this->siteParam("comic-show-archive-page-names")) { ?>
-        <br/><span>Page <?=$node->pageNumber?><br/><em><?=$node->page->displayName()?></em></span>
+        <br/><span><em><?=$page->name?></em></span>
     <?php } ?>
 </a>

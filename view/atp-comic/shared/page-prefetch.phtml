@@ -1,8 +1,8 @@
 <?php $this->headLink([
     'rel' => 'prefetch',
-    'href' => $this->url('comic/page', $node->getRoutingData())
+    'href' => $this->basePath('comic/page' . $page->url)
 ])?>
 <?php $this->headLink([
     'rel' => 'prefetch',
-    'href' => $this->basePath($node->page->filePath('image_file'))
+    'href' => "http://" . $this->siteParam("comic-s3-bucket") . '/' . $page->image->fileName . '/' . $page->image->fileExtension
 ])?>

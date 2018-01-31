@@ -7,14 +7,14 @@
 		<?=$navLinks?>
 	<?php } ?>
 
-	<img class="comic-img" src="<?=$this->basePath($node->page->filePath('image_file'))?>" />
+    <img class="comic-img" src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$page->image->fileName?>.<?=$page->image->fileExtension?>" />
 
     <h1 class="page-name">
-        Page <?=$node->pageNumber?>: <?=$node->page->title?><br/>
-        <em><?=date('F j\<\s\u\p\>S\<\/\s\u\p\>, Y', strtotime($node->page->postDate))?></em>
-        <?=$this->facebookLike("comic/{$node->arc->url}/{$node->pageNumber}/{$node->page->url}")?>
+        Page <?=$page->pageNumber?>: <?=$page->name?><br/>
+        <em><?=date('F j\<\s\u\p\>S\<\/\s\u\p\>, Y', strtotime($page->postDate))?></em>
+        <?=$this->facebookLike("comic/page/{$page->url}")?>
     </h1>
-    <?php if(strlen($node->page->transcriptHtml) > 0) { ?>
+    <?php if(strlen($page->transcriptHtml) > 0) { ?>
         <script>var showTranscripts=<?=$this->siteParam('comic-show-transcripts')?>;</script>
         <div id="transcript-container">
             <h2 id="transcriptToggle">
@@ -22,7 +22,7 @@
                 <i class="glyphicon glyphicon-subtitles"></i>
             </h2>
             <div id="transcript">
-                <?=$node->page->transcriptHtml?>
+                <?=$page->transcriptHtml?>
             </div>
         </div>
     <?php } ?>
@@ -33,10 +33,10 @@
 
     <div class="comic-page-footer">
         <div class="page-extra">
-			<?php foreach($node->page->commentaries() as $commentary) { ?>
+			<?php foreach($page->commentary as $commentary) { ?>
 				<div class="commentary">
-					<h2><i class="avatar-<?=$commentary->user->username?>"></i><?=$commentary->title?></h2>
-					<div class="body"><?=$commentary->commentaryHtml?></div>
+					<h2><i class="avatar-<?=$commentary->user->userName?>"></i><?=$commentary->title?></h2>
+					<div class="body"><?=$commentary->html?></div>
 				</div>
 			<?php } ?>
         </div>
@@ -52,9 +52,9 @@
         <div id="disqus_thread" class="col-xs-12"></div>
         <script>
             var disqus_config = function () {
-                this.page.url = "http://<?=$_SERVER['SERVER_NAME'] . $this->url('comic/page', $node->getRoutingData())?>";
-                this.page.identifier = "<?=$node->page->id?>";
-                this.page.title = "<?=$node->page->title?>";
+                this.page.url = "http://<?=$_SERVER['SERVER_NAME'] . '/comic/' . $page->url?>";
+                this.page.identifier = "<?=$page->url?>";
+                this.page.title = "<?=$page->name?>";
             };
 
             (function() { // DON'T EDIT BELOW THIS LINE

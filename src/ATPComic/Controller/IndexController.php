@@ -4,6 +4,8 @@ namespace ATPComic\Controller;
 
 class IndexController extends \ATPCore\Controller\AbstractController
 {
+    use \ATPComic\ApiTrait;
+
 	public function init()
 	{
         $this->cacheFor(24*60*60);
@@ -14,36 +16,34 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		$this->init();
 		
 		//Get the params
-		$arcId = $this->params('arc');
 		$pageUrl = $this->params('pageUrl');
 		
-		//Get the current arc
-		$arc = new \ATPComic\Model\Arc();
-		$arc->loadByUrl($arcId);
-		
-		//Get the current page
-		$page = new \ATPComic\Model\Page();
-		$page->loadByUrl($pageUrl);
-		
-		//Make sure the page is active
-		if(!$page->isActive)
-		{
-			$this->getResponse()->setStatusCode(404);
-			return;
-		}
-		
-		//Get the arc/page node
-		$node = new \ATPComic\Model\Node($arc, $page);
-		
-		//Save the current page in the session
-		$this->remember->currentComicPage = $node->id;
+        //Get the page Id from the url
+        $pageId = $this->api("page", [
+            'columns' => 'id',
+            'url' => $pageUrl
+        ])[0]->id;
+
+        //Get the page details from the REST api
+        $page = $this->api("page/" . $pageId . "/details");
+
+        //Make sure the page is active
+        if(!$page->enabled)
+        {
+            $this->getResponse()->setStatusCode(404);
+            return;
+        }
+
+        //Save the current page in the session
+		$this->remember->currentComicPage = $page->url;
 		
 		$view = new \Zend\View\Model\ViewModel();
-		$view->node = $node;
+        $view->page = $page;
+        //echo "<pre>";print_r(json_encode($view->page));die();
 		
 		//Create the page widget
 		$comicPage = new \ATPComic\View\Widget\Page();
-		$comicPage->node = $node;
+        $comicPage->page = $view->page;
         $comicPage->showComments = true;
 		$view->addChild($comicPage, 'comicPage');		
 		
@@ -56,10 +56,7 @@ class IndexController extends \ATPCore\Controller\AbstractController
 
 		if(isset($this->remember->currentComicPage))
 		{
-			$nodeId = $this->remember->currentComicPage;
-			$node = new \ATPComic\Model\Node();
-			$node->loadById($nodeId);
-			$this->redirect()->toRoute('comic/page', $node->getRoutingData());
+			$this->redirect()->toRoute('comic/page', ['pageUrl' => $this->remember->currentComicPage]);
 		}
 		else
 		{
@@ -72,16 +69,13 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		$this->init();
 		
 		$arcUrl = $this->params('arc');
-		
-		$arc = new \ATPComic\Model\Arc();
-		$arcs = $arc->loadMultiple(array(
-			'where' => !empty($arcUrl) ? "url = ?" : "parent_arc_id is null OR parent_arc_id = 0",
-            'orderBy' => 'sort_order ASC',
-			'data' =>!empty($arcUrl) ? array($arcUrl) : array()
-		));
-		
+
+        $arcId = $this->api("arc", ['url' => $arcUrl])[0]->id;
+
+        $arc = $this->api('arc/' . $arcId . '/details');
+
 		return new \Zend\View\Model\ViewModel(array(
-			'arcs' => $arcs
+			'arc' => $arc,
 		));
 	}
 

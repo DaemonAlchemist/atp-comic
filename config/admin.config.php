@@ -139,6 +139,27 @@ return array(
 				'type' => 'Boolean',
 				'default' => true,
 			),
+            'comic-rest-host' => array(
+                'displayName' => 'REST Api Hostname',
+                'group' => 'Comic',
+                'subGroup' => 'REST Api',
+                'type' => 'Text',
+                'default' => '',
+            ),
+            'comic-rest-login-token' => array(
+                'displayName' => 'REST Api Login Token',
+                'group' => 'Comic',
+                'subGroup' => 'REST Api',
+                'type' => 'Text',
+                'default' => '',
+            ),
+            'comic-s3-bucket' => array(
+                'displayName' => 'S3 Image Bucket',
+                'group' => 'Comic',
+                'subGroup' => 'REST Api',
+                'type' => 'Text',
+                'default' => '',
+            ),
 		),
 	),
 );

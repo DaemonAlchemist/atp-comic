@@ -17,7 +17,7 @@ return array(
 					'page' => array(
 						'type'    => 'Segment',
 						'options' => array(
-							'route'    => '/:arc[/:pageNum/:pageUrl]',
+							'route'    => '/page/:pageUrl',
 							'defaults' => array(
 								'controller'    => 'atp-comic-index',
 								'action'		=> 'page',

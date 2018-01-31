@@ -12,9 +12,9 @@ class Page extends \ATPCore\View\Widget
 		$this->_links = new \ATPComic\View\Widget\NavLinks();
 		$this->addChild($this->_links, 'navLinks');
 	}
-	
-	protected function setNode($node)
-	{
-		$this->_links->node = $node;
-	}
+
+	protected function setPage($page)
+    {
+        $this->_links->page = $page;
+    }
 }
