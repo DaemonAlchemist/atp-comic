@@ -85,14 +85,11 @@ class IndexController extends \ATPCore\Controller\AbstractController
 
         $arcUrl = $this->params('arc');
 
-        $arc = new \ATPComic\Model\Arc();
-        $arc->loadByUrl($arcUrl);
-
-        $nodes = $arc->getPageNodes('DESC', 10);
+        $pages = $this->api('page', ['enabled' => true, 'sort' => 'postDate DESC', 'perPage' => 10]);
 
         $view = new \Zend\View\Model\ViewModel(array(
-            'arc' => $arc,
-            'nodes' => $nodes
+            'arc' => $arcUrl,
+            'pages' => $pages
         ));
 
         $view->setTerminal(true);

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0">
     <channel>
-        <title><?=$arc->name?> RSS Feed</title>
+        <title><?=$this->siteParam('core-site-title')?> RSS Feed</title>
         <description></description>
-        <link><?=$this->serverUrl($this->url('comic/archives', ['arc' => $arc->url]))?></link>
-        <lastBuildDate><?=$nodes[0]->page->postDate?></lastBuildDate>
-        <pubDate><?=$nodes[0]->page->postDate?></pubDate>
+        <link><?=$this->serverUrl($this->url('comic/archives', ['arc' => $arc]))?></link>
+        <lastBuildDate><?=$pages[0]->postDate?></lastBuildDate>
+        <pubDate><?=$pages[0]->postDate?></pubDate>
         <ttl>1800</ttl>
 
-        <?php foreach($nodes as $node) {?>
+        <?php foreach($pages as $page) {?>
             <item>
-                <title><?=$arc->name?> Page <?=$node->pageNumber?>: <?=$node->page->title?></title>
+                <title><?=$this->siteParam('core-site-title')?>: <?=$page->name?></title>
                 <description></description>
-                <link><?=$this->serverUrl($this->url('comic/page', $node->getRoutingData()))?></link>
-                <pubDate><?=$node->page->postDate?></pubDate>
+                <link><?=$this->serverUrl($this->url('comic/page', ['pageUrl' => $page->url]))?></link>
+                <pubDate><?=$page->postDate?></pubDate>
             </item>
         <?php } ?>
     </channel>
