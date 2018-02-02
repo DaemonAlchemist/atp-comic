@@ -5,11 +5,16 @@ namespace ATPComic;
 trait ApiTrait
 {
     public function api($url, $query = []) {
-        return \Httpful\Request::get(
+        $response = \Httpful\Request::get(
             $this->siteParam('comic-rest-host') . $url . "?" . http_build_query($query)
         )
             ->addHeaders(['Login-Token' => $this->siteParam('comic-rest-login-token')])
-            ->send()
-            ->body->results;
+            ->send();
+
+        if($response->hasErrors()) {
+            throw new \Exception($response->code);
+        }
+
+        return $response->body->results;
     }
 }

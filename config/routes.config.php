@@ -24,6 +24,17 @@ return array(
 							),
 						),
 					),
+                    //TODO:  ---- Remove this when Google juice has been transferred to new pages----
+                    'pageOLD' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '/:arc/:number/:pageUrl',
+                            'defaults' => array(
+                                'controller'    => 'atp-comic-index',
+                                'action'		=> 'page',
+                            ),
+                        ),
+                    ),
 					'bookmark' => array(
 						'type' => 'Literal',
 						'options' => array(

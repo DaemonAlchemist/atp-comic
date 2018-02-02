@@ -25,12 +25,11 @@ class IndexController extends \ATPCore\Controller\AbstractController
         ])[0]->id;
 
         //Get the page details from the REST api
-        $page = $this->api("page/" . $pageId . "/details");
-
-        //Make sure the page is active
-        if(!$page->enabled)
-        {
-            $this->getResponse()->setStatusCode(404);
+        $page = null;
+        try {
+            $page = $this->api("page/" . $pageId . "/details");
+        } catch(\Exception $e) {
+            $this->getResponse()->setStatusCode($e->getMessage());
             return;
         }
 
@@ -70,9 +69,15 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		
 		$arcUrl = $this->params('arc');
 
-        $arcId = $this->api("arc", ['url' => $arcUrl])[0]->id;
+        $arc = null;
+        try {
+            $arcId = $this->api("arc", ['url' => $arcUrl])[0]->id;
 
-        $arc = $this->api('arc/' . $arcId . '/details');
+            $arc = $this->api('arc/' . $arcId . '/details');
+        } catch(\Exception $e) {
+            $this->getResponse()->setStatusCode($e->getMessage());
+            return;
+        }
 
 		return new \Zend\View\Model\ViewModel(array(
 			'arc' => $arc,
