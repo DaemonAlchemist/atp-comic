@@ -8,7 +8,7 @@ trait ApiTrait
         $response = \Httpful\Request::get(
             $this->siteParam('comic-rest-host') . $url . "?" . http_build_query($query)
         )
-            ->addHeaders(['Login-Token' => $this->siteParam('comic-rest-login-token')])
+            ->addHeaders(['Api-Key' => $this->siteParam('comic-rest-api-key')])
             ->send();
 
         if($response->hasErrors()) {

@@ -146,8 +146,8 @@ return array(
                 'type' => 'Text',
                 'default' => '',
             ),
-            'comic-rest-login-token' => array(
-                'displayName' => 'REST Api Login Token',
+            'comic-rest-api-key' => array(
+                'displayName' => 'REST Api Key',
                 'group' => 'Comic',
                 'subGroup' => 'REST Api',
                 'type' => 'Text',
