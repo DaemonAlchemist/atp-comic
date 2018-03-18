@@ -1,7 +1,7 @@
 <?php $this->appendCss("/css/atp-comic/comic.less")?>
 
 <div id="archives">
-    <img class="arc-banner" src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$arc->banner->fileName?>.<?=$arc->banner->fileExtension?>" />
+    <img class="arc-banner" src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$this->s3FileName($arc->banner)?>" />
     <h1>
         <?php if($arc) {?>
             <?=$arc->name?>
@@ -15,7 +15,7 @@
                 <li>
                     <a
                         href="<?=$this->url("comic/archives", array('arc' => $parentArc->url))?>"
-                        <?php if($parentArc->id === $arc->id) {?> class="active" <?php } ?>
+                        <?php if($parentArc->url === $arc->url) {?> class="active" <?php } ?>
                     >
                         <?=$parentArc->name?>
                     </a>
@@ -39,7 +39,7 @@
     <ul class="sub-arcs">
         <?php foreach($arc->subArcs as $index => $subArc) { ?>
             <li>
-                <img class="subarc-thumbnail" src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$subArc->thumbnail->fileName?>.<?=$subArc->thumbnail->fileExtension?>" />
+                <img class="subarc-thumbnail" src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$this->s3FileName($subArc->thumbnail)?>" />
                 <div class="subarc-info">
                     <h3>
                         <a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">

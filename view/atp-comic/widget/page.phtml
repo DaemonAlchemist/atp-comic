@@ -7,11 +7,11 @@
 		<?=$navLinks?>
 	<?php } ?>
 
-    <img class="comic-img" src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$page->image->fileName?>.<?=$page->image->fileExtension?>" />
+    <img class="comic-img" src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$this->s3FileName($page->image)?>" />
 
     <h1 class="page-name">
         Page <?=$page->pageNumber?>: <?=$page->name?><br/>
-        <em><?=date('F j\<\s\u\p\>S\<\/\s\u\p\>, Y', strtotime($page->postDate))?></em>
+        <em><?=gmdate('F j\<\s\u\p\>S\<\/\s\u\p\>, Y', strtotime($page->postDate))?></em>
         <?=$this->facebookLike("comic/page/{$page->url}")?>
     </h1>
     <?php if(strlen($page->transcriptHtml) > 0) { ?>

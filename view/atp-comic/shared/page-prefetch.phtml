@@ -4,5 +4,5 @@
 ])?>
 <?php $this->headLink([
     'rel' => 'prefetch',
-    'href' => "http://" . $this->siteParam("comic-s3-bucket") . '/' . $page->image->fileName . '/' . $page->image->fileExtension
+    'href' => "http://" . $this->siteParam("comic-s3-bucket") . '/' . $this->s3FileName($page->image)
 ])?>
