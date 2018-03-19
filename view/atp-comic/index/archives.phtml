@@ -8,7 +8,7 @@
         <?php } ?>
     </h1>
 
-    <p class="arc-summary"><?=$arc->summaryHtml?></p>
+    <div class="arc-summary"><?=$arc->summaryHtml?></div>
     <?php if($this->siteParam("comic-show-archive-breadcrumbs")) {?>
         <ol class="breadcrumb">
             <?php foreach($arc->parents as $parentArc) { ?>
