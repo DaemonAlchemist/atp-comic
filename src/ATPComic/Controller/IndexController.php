@@ -69,10 +69,27 @@ class IndexController extends \ATPCore\Controller\AbstractController
 		
 		$arcUrl = $this->params('arc');
 
+        if(!$arcUrl) {
+            $this->getResponse()->setStatusCode(404);
+            return;
+        }
+
+        $arcId = null;
         $arc = null;
         try {
-            $arcId = $this->api("arc", ['url' => $arcUrl])[0]->id;
+            $arcs = $this->api("arc", ['url' => $arcUrl]);
+            if(count($arcs) === 0) {
+                $this->getResponse()->setStatusCode(404);
+                return;
+            }
+            $arcId = $arcs[0]->id;
 
+        } catch(\Exception $e) {
+            $this->getResponse()->setStatusCode($e->getMessage());
+            return;
+        }
+
+        try {
             $arc = $this->api('arc/' . $arcId . '/details');
         } catch(\Exception $e) {
             $this->getResponse()->setStatusCode($e->getMessage());

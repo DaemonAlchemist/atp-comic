@@ -39,15 +39,12 @@
     <ul class="sub-arcs">
         <?php foreach($arc->subArcs as $index => $subArc) { ?>
             <li>
-                <img class="subarc-thumbnail" src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$this->s3FileName($subArc->thumbnail)?>" />
-                <div class="subarc-info">
-                    <h3>
-                        <a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">
-                            <?=$subArc->name?>
-                        </a>
-                    </h3>
-                    <p><?=$subArc->summaryHtml?></p>
-                </div>
+                <a href="<?=$this->url("comic/archives", array('arc' => $subArc->url))?>">
+                    <img class="subarc-thumbnail" src="http://<?=$this->siteParam("comic-s3-bucket")?>/<?=$this->s3FileName($subArc->thumbnail)?>" />
+                    <div class="subarc-info">
+                        <?=$subArc->name?>
+                    </div>
+                </a>
             </li>
         <?php } ?>
     </ul>
